@@ -1,4 +1,6 @@
-package Jogo_da_Forca;
+package principal;
+
+import interfaces.Subject;
 
 import java.util.*;
 

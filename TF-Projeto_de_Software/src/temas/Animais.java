@@ -1,6 +1,8 @@
-package Jogo_da_Forca;
+package temas;
 
-public class Profissoes implements TipoTema {
+import interfaces.TipoTema;
+
+public class Animais implements TipoTema{
 
 	@Override
 	public char[] getPalavraArquivo() {

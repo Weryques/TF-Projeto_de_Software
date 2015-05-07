@@ -1,4 +1,4 @@
-package Jogo_da_Forca;
+package principal;
 
 public class Tema {
 

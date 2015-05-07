@@ -1,4 +1,6 @@
-package Jogo_da_Forca;
+package principal;
+
+import interfaces.Observer;
 
 public class Jogador implements Observer {
 

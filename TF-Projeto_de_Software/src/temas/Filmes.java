@@ -1,4 +1,6 @@
-package Jogo_da_Forca;
+package temas;
+
+import interfaces.TipoTema;
 
 public class Filmes implements TipoTema{
 

@@ -1,4 +1,6 @@
-package Jogo_da_Forca;
+package niveis;
+
+import interfaces.TipoNiveis;
 
 public class Medio implements TipoNiveis {
 

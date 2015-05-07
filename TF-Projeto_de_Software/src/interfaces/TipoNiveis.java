@@ -1,4 +1,4 @@
-package Jogo_da_Forca;
+package interfaces;
 
 public interface TipoNiveis {
 	
