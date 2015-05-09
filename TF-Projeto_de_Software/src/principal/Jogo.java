@@ -4,7 +4,7 @@ import interfaces.Subject;
 
 import java.util.*;
 
-public class Tela implements Subject{
+public class Jogo implements Subject{
 	static Scanner scan = new Scanner(System.in);
 	
 	@SuppressWarnings("null")
