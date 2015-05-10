@@ -2,6 +2,6 @@ package interfaces;
 
 public interface TipoNiveis {
 	
-	public void desenhaCorpo(int quantErro);
+	public void desenhaCorpo(int quantErro, char[][] forca);
 	
 }
