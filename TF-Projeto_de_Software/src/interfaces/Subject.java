@@ -1,7 +1,9 @@
 package interfaces;
 
+import interfaces.Observer;;
+
 public interface Subject {
-	public void adiciona();
+	public void adicionaJogador(Observer jogador);
 	public void remove();
-	public void notifica();
+	public void notificaJogadores();
 }
