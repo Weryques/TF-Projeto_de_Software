@@ -3,6 +3,7 @@ package niveis;
 import interfaces.TipoNiveis;
 
 public class Facil implements TipoNiveis {
+	int tentativasRestantes = 13;
 
 	@Override
 	public void desenhaCorpo(int quantErro, char[][] forca) {
@@ -10,6 +11,8 @@ public class Facil implements TipoNiveis {
 		
 	}
 
-
+	public int getTentativasRestantes() {
+		return tentativasRestantes;
+	}
 
 }
