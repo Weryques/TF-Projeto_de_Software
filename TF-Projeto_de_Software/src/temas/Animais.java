@@ -10,10 +10,10 @@ import interfaces.TipoTema;
 public class Animais implements TipoTema{
 
 	@Override
-	public String getPalavraArquivo() throws IOException, FileNotFoundException {		
+	public String getPalavraArquivo() throws IOException{		
 		String palavra = null;
 		List listaDePalavras = new ArrayList();
-		Scanner scan = extracted().useDelimiter("\\|");
+		Scanner scan = extracted().useDelimiter("\\\n");
 		
 		while(scan.hasNext()){
 			listaDePalavras.add(scan.next());
