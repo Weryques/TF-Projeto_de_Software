@@ -13,7 +13,7 @@ public class PalavraAnonima implements Observer{
 		for(int i = 0; i < copiaTracejada.length; i++){
 			System.out.print(" "+ copiaTracejada[i] +" ");
 		}
-		System.out.println();
+		
 		System.out.println();
 	}
 

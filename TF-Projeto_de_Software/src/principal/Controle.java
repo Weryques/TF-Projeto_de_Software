@@ -19,13 +19,11 @@ public class Controle {
 		String resultado;
 		int tentativasRestantes = 0;
 
-		tentativasRestantes = definirTentativas(dificil, facil, medio, nivel,
-				tentativasRestantes);
+		tentativasRestantes = definirTentativas(dificil, facil, medio, nivel, tentativasRestantes);
 		palavra = definirTema(animais, filmes, profissoes, tema);
 
 		tracejarPalavra(palavra, copiaTracejada);
-		adicionaObservers(tela, fimJogo, bancoLetras, forcaI,
-				palavraAnonima);
+		adicionaObservers(tela, fimJogo, bancoLetras, forcaI, palavraAnonima);
 
 		while(true){
 			int qA = 0;
@@ -43,6 +41,7 @@ public class Controle {
 				break;
 			}
 
+			System.out.println();
 			System.out.print("Digite uma letra (MAIÚSCULA): ");
 			letra = scan.next().charAt(0);
 
@@ -97,9 +96,9 @@ public class Controle {
 			BancoLetrasErradas bancoLetras, Forca forcaI,
 			PalavraAnonima palavraAnonima) {
 		tela.adicionaObservers(fimJogo.cria_se());
-		tela.adicionaObservers(bancoLetras.cria_se());
 		tela.adicionaObservers(forcaI.cria_se());
 		tela.adicionaObservers(palavraAnonima.cria_se());
+		tela.adicionaObservers(bancoLetras.cria_se());
 	}
 
 	public int tamanho(String palavra){//criei para palavras compostas

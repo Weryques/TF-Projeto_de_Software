@@ -14,7 +14,7 @@ public class FimJogo implements Observer{
 		
 		if(resultado != null){
 			System.out.println(resultado);
-			tela.remove();
+			tela.remove(); 
 		}
 		
 		System.out.println();
