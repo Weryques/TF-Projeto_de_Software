@@ -9,7 +9,7 @@ import observadores.*;
 
 public class Controle {
 	static Scanner scan = new Scanner(System.in);
-	
+
 	public void controle(Animais animais, Filmes filmes, Profissoes profissoes, Tela tela, FimJogo fimJogo, BancoLetrasErradas bancoLetras, Forca forcaI, PalavraAnonima palavraAnonima,
 			Dificil dificil, Facil facil, Medio medio, char[] copiaTracejada, char[] erradas, char letra,
 			char[][] forca, int qAcertos, int h, int nivel, int tema)
@@ -17,501 +17,80 @@ public class Controle {
 
 		String palavra;
 		String resultado;
-		int tentativasRestantes;
+		int tentativasRestantes = 0;
 
-		if(nivel == 1 && tema == 1){
-			tentativasRestantes = facil.getTentativasRestantes();
+		tentativasRestantes = definirTentativas(dificil, facil, medio, nivel,
+				tentativasRestantes);
+		palavra = definirTema(animais, filmes, profissoes, tema);
 
-			palavra = animais.getPalavraArquivo();
-			tracejarPalavra(palavra, copiaTracejada);
-			adicionaObservers(tela, fimJogo, bancoLetras, forcaI,
-					palavraAnonima);
+		tracejarPalavra(palavra, copiaTracejada);
+		adicionaObservers(tela, fimJogo, bancoLetras, forcaI,
+				palavraAnonima);
 
-			while(true){
-				int qA = 0;
+		while(true){
+			int qA = 0;
 
-				tela.setEnviarDadosAlterados(copiaTracejada, erradas, forca, tentativasRestantes);
+			tela.setEnviarDadosAlterados(copiaTracejada, erradas, forca, tentativasRestantes);
 
-				if(qAcertos == tamanho(palavra)){
-					resultado = "VOCÊ ACERTOU! PARABÉNS!";
-					tela.setResultado(resultado);
-					break;
-				}
-				else if(tentativasRestantes == 0){
-					resultado = "VOCÊ PERDEU. TENTE NOVAMENTE!";
-					tela.setResultado(resultado);
-					break;
-				}
+			if(qAcertos == tamanho(palavra)){
+				resultado = "VOCÊ ACERTOU! PARABÉNS!";
+				tela.setResultado(resultado);
+				break;
+			}
+			else if(tentativasRestantes == 0){
+				resultado = "VOCÊ PERDEU. TENTE NOVAMENTE!";
+				tela.setResultado(resultado);
+				break;
+			}
 
-				System.out.print("Digite uma letra (MAIÚSCULA): ");
-				letra = scan.next().charAt(0);
+			System.out.print("Digite uma letra (MAIÚSCULA): ");
+			letra = scan.next().charAt(0);
 
-				for(int i = 0; i < palavra.length(); i++){
-					if(palavra.charAt(i) == letra){
-						qAcertos++;
-						qA++;
-						copiaTracejada[i] = letra;
-					}
-				}
-
-				if(qA == 0){
-					erradas[h++] = letra;
-					tentativasRestantes--;
+			for(int i = 0; i < palavra.length(); i++){
+				if(palavra.charAt(i) == letra){
+					qAcertos++;
+					qA++;
+					copiaTracejada[i] = letra;
 				}
 			}
-		}
-		else if(nivel == 1 && tema == 2){
-			tentativasRestantes = facil.getTentativasRestantes();
 
-			palavra = filmes.getPalavraArquivo();
-			tracejarPalavra(palavra, copiaTracejada);
-			adicionaObservers(tela, fimJogo, bancoLetras, forcaI,
-					palavraAnonima);
-			
-			while(true){
-				int qA = 0;
-
-				tela.setEnviarDadosAlterados(copiaTracejada, erradas, forca, tentativasRestantes);
-
-				if(qAcertos == tamanho(palavra)){
-					resultado = "VOCÊ ACERTOU! PARABÉNS!";
-					tela.setResultado(resultado);
-					break;
-				}
-				else if(tentativasRestantes == 0){
-					resultado = "VOCÊ PERDEU. TENTE NOVAMENTE!";
-					tela.setResultado(resultado);
-					break;
-				}
-
-				System.out.print("Digite uma letra (MAIÚSCULA): ");
-				letra = scan.next().charAt(0);
-
-				for(int i = 0; i < palavra.length(); i++){
-					if(palavra.charAt(i) == letra){
-						qAcertos++;
-						qA++;
-						copiaTracejada[i] = letra;
-					}
-				}
-
-				if(qA == 0){
-					erradas[h++] = letra;
-					tentativasRestantes--;
-				}
+			if(qA == 0){
+				erradas[h++] = letra;
+				tentativasRestantes--;
 			}
 		}
-		else if(nivel == 1 && tema == 3){
-			tentativasRestantes = facil.getTentativasRestantes();
+	}
 
+	public String definirTema(Animais animais, Filmes filmes,
+			Profissoes profissoes, int tema) throws IOException {
+		String palavra;
+		if(tema == 3){
 			palavra = profissoes.getPalavraArquivo();
-			tracejarPalavra(palavra, copiaTracejada);
-			adicionaObservers(tela, fimJogo, bancoLetras, forcaI,
-					palavraAnonima);
-			
-			while(true){
-				int qA = 0;
-
-				tela.setEnviarDadosAlterados(copiaTracejada, erradas, forca, tentativasRestantes);
-
-				if(qAcertos == tamanho(palavra)){
-					resultado = "VOCÊ ACERTOU! PARABÉNS!";
-					tela.setResultado(resultado);
-					break;
-				}
-				else if(tentativasRestantes == 0){
-					resultado = "VOCÊ PERDEU. TENTE NOVAMENTE!";
-					tela.setResultado(resultado);
-					break;
-				}
-
-				System.out.print("Digite uma letra (MAIÚSCULA): ");
-				letra = scan.next().charAt(0);
-
-				for(int i = 0; i < palavra.length(); i++){
-					if(palavra.charAt(i) == letra){
-						qAcertos++;
-						qA++;
-						copiaTracejada[i] = letra;
-					}
-				}
-
-				if(qA == 0){
-					erradas[h++] = letra;
-					tentativasRestantes--;
-				}
-			}
 		}
-
-		else if(nivel == 3 && tema == 1){
-			tentativasRestantes = dificil.getTentativasRestantes();
-
-			palavra = animais.getPalavraArquivo();
-			tracejarPalavra(palavra, copiaTracejada);
-			adicionaObservers(tela, fimJogo, bancoLetras, forcaI,
-					palavraAnonima);
-
-			while(true){
-				int qA = 0;
-
-				tela.setEnviarDadosAlterados(copiaTracejada, erradas, forca, tentativasRestantes);
-
-				if(qAcertos == tamanho(palavra)){
-					resultado = "VOCÊ ACERTOU! PARABÉNS!";
-					tela.setResultado(resultado);
-					break;
-				}
-				else if(tentativasRestantes == 0){
-					resultado = "VOCÊ PERDEU. TENTE NOVAMENTE!";
-					tela.setResultado(resultado);
-					break;
-				}
-
-				System.out.print("Digite uma letra (MAIÚSCULA): ");
-				letra = scan.next().charAt(0);
-
-				for(int i = 0; i < palavra.length(); i++){
-					if(palavra.charAt(i) == letra){
-						qAcertos++;
-						qA++;
-						copiaTracejada[i] = letra;
-					}
-				}
-
-				if(qA == 0){
-					erradas[h++] = letra;
-					tentativasRestantes--;
-				}
-			}
-		}
-		else if(nivel == 3 && tema == 2){
-			tentativasRestantes = dificil.getTentativasRestantes();
-
+		else if(tema == 2){
 			palavra = filmes.getPalavraArquivo();
-			tracejarPalavra(palavra, copiaTracejada);
-			adicionaObservers(tela, fimJogo, bancoLetras, forcaI,
-					palavraAnonima);
-			
-			while(true){
-				int qA = 0;
-
-				tela.setEnviarDadosAlterados(copiaTracejada, erradas, forca, tentativasRestantes);
-
-				if(qAcertos == tamanho(palavra)){
-					resultado = "VOCÊ ACERTOU! PARABÉNS!";
-					tela.setResultado(resultado);
-					break;
-				}
-				else if(tentativasRestantes == 0){
-					resultado = "VOCÊ PERDEU. TENTE NOVAMENTE!";
-					tela.setResultado(resultado);
-					break;
-				}
-
-				System.out.print("Digite uma letra (MAIÚSCULA): ");
-				letra = scan.next().charAt(0);
-
-				for(int i = 0; i < palavra.length(); i++){
-					if(palavra.charAt(i) == letra){
-						qAcertos++;
-						qA++;
-						copiaTracejada[i] = letra;
-					}
-				}
-
-				if(qA == 0){
-					erradas[h++] = letra;
-					tentativasRestantes--;
-				}
-			}
 		}
-		else if(nivel == 3 && tema == 3){
-			tentativasRestantes = dificil.getTentativasRestantes();
-
-			palavra = profissoes.getPalavraArquivo();
-			tracejarPalavra(palavra, copiaTracejada);
-			adicionaObservers(tela, fimJogo, bancoLetras, forcaI,
-					palavraAnonima);
-
-			while(true){
-				int qA = 0;
-
-				tela.setEnviarDadosAlterados(copiaTracejada, erradas, forca, tentativasRestantes);
-
-				if(qAcertos == tamanho(palavra)){
-					resultado = "VOCÊ ACERTOU! PARABÉNS!";
-					tela.setResultado(resultado);
-					break;
-				}
-				else if(tentativasRestantes == 0){
-					resultado = "VOCÊ PERDEU. TENTE NOVAMENTE!";
-					tela.setResultado(resultado);
-					break;
-				}
-
-				System.out.print("Digite uma letra (MAIÚSCULA): ");
-				letra = scan.next().charAt(0);
-
-				for(int i = 0; i < palavra.length(); i++){
-					if(palavra.charAt(i) == letra){
-						qAcertos++;
-						qA++;
-						copiaTracejada[i] = letra;
-					}
-				}
-
-				if(qA == 0){
-					erradas[h++] = letra;
-					tentativasRestantes--;
-				}
-			}
-		}
-		else if(nivel == 2 && tema == 1){
-			tentativasRestantes = medio.getTentativasRestantes();
-
+		else if(tema == 1){
 			palavra = animais.getPalavraArquivo();
-			tracejarPalavra(palavra, copiaTracejada);
-			adicionaObservers(tela, fimJogo, bancoLetras, forcaI,
-					palavraAnonima);
-
-			while(true){
-				int qA = 0;
-
-				tela.setEnviarDadosAlterados(copiaTracejada, erradas, forca, tentativasRestantes);
-
-				if(qAcertos == tamanho(palavra)){
-					resultado = "VOCÊ ACERTOU! PARABÉNS!";
-					tela.setResultado(resultado);
-					break;
-				}
-				else if(tentativasRestantes == 0){
-					resultado = "VOCÊ PERDEU. TENTE NOVAMENTE!";
-					tela.setResultado(resultado);
-					break;
-				}
-
-				System.out.print("Digite uma letra (MAIÚSCULA): ");
-				letra = scan.next().charAt(0);
-
-				for(int i = 0; i < palavra.length(); i++){
-					if(palavra.charAt(i) == letra){
-						qAcertos++;
-						qA++;
-						copiaTracejada[i] = letra;
-					}
-				}
-
-				if(qA == 0){
-					erradas[h++] = letra;
-					tentativasRestantes--;
-				}
-			}
 		}
-		else if(nivel == 2 && tema == 2){
-			tentativasRestantes = medio.getTentativasRestantes();
-
-			palavra = filmes.getPalavraArquivo();
-			tracejarPalavra(palavra, copiaTracejada);
-			adicionaObservers(tela, fimJogo, bancoLetras, forcaI,
-					palavraAnonima);
-
-			while(true){
-				int qA = 0;
-
-				tela.setEnviarDadosAlterados(copiaTracejada, erradas, forca, tentativasRestantes);
-
-				if(qAcertos == tamanho(palavra)){
-					resultado = "VOCÊ ACERTOU! PARABÉNS!";
-					tela.setResultado(resultado);
-					break;
-				}
-				else if(tentativasRestantes == 0){
-					resultado = "VOCÊ PERDEU. TENTE NOVAMENTE!";
-					tela.setResultado(resultado);
-					break;
-				}
-
-				System.out.print("Digite uma letra (MAIÚSCULA): ");
-				letra = scan.next().charAt(0);
-
-				for(int i = 0; i < palavra.length(); i++){
-					if(palavra.charAt(i) == letra){
-						qAcertos++;
-						qA++;
-						copiaTracejada[i] = letra;
-					}
-				}
-
-				if(qA == 0){
-					erradas[h++] = letra;
-					tentativasRestantes--;
-				}
-			}
-		}
-		else if(nivel == 2 && tema == 3){
-			tentativasRestantes = medio.getTentativasRestantes();
-
-			palavra = profissoes.getPalavraArquivo();
-			tracejarPalavra(palavra, copiaTracejada);
-			adicionaObservers(tela, fimJogo, bancoLetras, forcaI,
-					palavraAnonima);
-			
-			while(true){
-				int qA = 0;
-
-				tela.setEnviarDadosAlterados(copiaTracejada, erradas, forca, tentativasRestantes);
-
-				if(qAcertos == tamanho(palavra)){
-					resultado = "VOCÊ ACERTOU! PARABÉNS!";
-					tela.setResultado(resultado);
-					break;
-				}
-				else if(tentativasRestantes == 0){
-					resultado = "VOCÊ PERDEU. TENTE NOVAMENTE!";
-					tela.setResultado(resultado);
-					break;
-				}
-
-				System.out.print("Digite uma letra (MAIÚSCULA): ");
-				letra = scan.next().charAt(0);
-
-				for(int i = 0; i < palavra.length(); i++){
-					if(palavra.charAt(i) == letra){
-						qAcertos++;
-						qA++;
-						copiaTracejada[i] = letra;
-					}
-				}
-
-				if(qA == 0){
-					erradas[h++] = letra;
-					tentativasRestantes--;
-				}
-			}
-		}
-		else if(nivel == 3){
-			tentativasRestantes = dificil.getTentativasRestantes();
-
+		else{
 			palavra = animais.getPalavraArquivo();
-			tracejarPalavra(palavra, copiaTracejada);
-			adicionaObservers(tela, fimJogo, bancoLetras, forcaI,
-					palavraAnonima);
+		}
+		return palavra;
+	}
 
-			while(true){
-				int qA = 0;
-
-				tela.setEnviarDadosAlterados(copiaTracejada, erradas, forca, tentativasRestantes);
-
-				if(qAcertos == tamanho(palavra)){
-					resultado = "VOCÊ ACERTOU! PARABÉNS!";
-					tela.setResultado(resultado);
-					break;
-				}
-				else if(tentativasRestantes == 0){
-					resultado = "VOCÊ PERDEU. TENTE NOVAMENTE!";
-					tela.setResultado(resultado);
-					break;
-				}
-
-				System.out.print("Digite uma letra (MAIÚSCULA): ");
-				letra = scan.next().charAt(0);
-
-				for(int i = 0; i < palavra.length(); i++){
-					if(palavra.charAt(i) == letra){
-						qAcertos++;
-						qA++;
-						copiaTracejada[i] = letra;
-					}
-				}
-
-				if(qA == 0){
-					erradas[h++] = letra;
-					tentativasRestantes--;
-				}
-			}
+	public int definirTentativas(Dificil dificil, Facil facil, Medio medio,
+			int nivel, int tentativasRestantes) {
+		if(nivel == 3){
+			tentativasRestantes = dificil.getTentativasRestantes();
 		}
 		else if(nivel == 2){
 			tentativasRestantes = medio.getTentativasRestantes();
-
-			palavra = animais.getPalavraArquivo();
-			tracejarPalavra(palavra, copiaTracejada);
-			adicionaObservers(tela, fimJogo, bancoLetras, forcaI,
-					palavraAnonima);
-
-			while(true){
-				int qA = 0;
-
-				tela.setEnviarDadosAlterados(copiaTracejada, erradas, forca, tentativasRestantes);
-
-				if(qAcertos == tamanho(palavra)){
-					resultado = "VOCÊ ACERTOU! PARABÉNS!";
-					tela.setResultado(resultado);
-					break;
-				}
-				else if(tentativasRestantes == 0){
-					resultado = "VOCÊ PERDEU. TENTE NOVAMENTE!";
-					tela.setResultado(resultado);
-					break;
-				}
-
-				System.out.print("Digite uma letra (MAIÚSCULA): ");
-				letra = scan.next().charAt(0);
-
-				for(int i = 0; i < palavra.length(); i++){
-					if(palavra.charAt(i) == letra){
-						qAcertos++;
-						qA++;
-						copiaTracejada[i] = letra;
-					}
-				}
-
-				if(qA == 0){
-					erradas[h++] = letra;
-					tentativasRestantes--;
-				}
-			}
 		}
 		else if(nivel == 1){
 			tentativasRestantes = facil.getTentativasRestantes();
-
-			palavra = animais.getPalavraArquivo();
-			tracejarPalavra(palavra, copiaTracejada);
-			adicionaObservers(tela, fimJogo, bancoLetras, forcaI,
-					palavraAnonima);
-
-			while(true){
-				int qA = 0;
-
-				tela.setEnviarDadosAlterados(copiaTracejada, erradas, forca, tentativasRestantes);
-
-				if(qAcertos == tamanho(palavra)){
-					resultado = "VOCÊ ACERTOU! PARABÉNS!";
-					tela.setResultado(resultado);
-					break;
-				}
-				else if(tentativasRestantes == 0){
-					resultado = "VOCÊ PERDEU. TENTE NOVAMENTE!";
-					tela.setResultado(resultado);
-					break;
-				}
-
-				System.out.print("Digite uma letra (MAIÚSCULA): ");
-				letra = scan.next().charAt(0);
-
-				for(int i = 0; i < palavra.length(); i++){
-					if(palavra.charAt(i) == letra){
-						qAcertos++;
-						qA++;
-						copiaTracejada[i] = letra;
-					}
-				}
-
-				if(qA == 0){
-					erradas[h++] = letra;
-					tentativasRestantes--;
-				}
-			}
 		}
+		return tentativasRestantes;
 	}
 
 	public void adicionaObservers(Tela tela, FimJogo fimJogo,
