@@ -6,7 +6,7 @@ import interfaces.Observer;
 import java.util.*;
 
 public class Tela implements Subject{
-	List jogadores = new ArrayList();
+	List observadores = new ArrayList();
 	String resultado;
 
 	int tentativasRestantes;
@@ -14,8 +14,8 @@ public class Tela implements Subject{
 	char[] erradas, copiaTracejada;
 		
 	@Override
-	public void adicionaJogador(Observer jogador) {
-		jogadores.add(jogador);
+	public void adicionaObservers(Observer observer) {
+		observadores.add(observer);
 	}
 
 	@Override
@@ -24,8 +24,8 @@ public class Tela implements Subject{
 	}
 
 	@Override
-	public void notificaJogadores() {		
-		Iterator iterator = jogadores.iterator();
+	public void notificaObservers() {		
+		Iterator iterator = observadores.iterator();
 		while (iterator.hasNext()) {
 			Observer jogador = (Observer)iterator.next();
 			jogador.atualiza(copiaTracejada, resultado, tentativasRestantes, forca, erradas);
@@ -33,7 +33,7 @@ public class Tela implements Subject{
 	}
 	
 	public void informarDadosAlterados(){
-		notificaJogadores();
+		notificaObservers();
 	}
 	
 	public void setEnviarDadosAlterados(char[] copiaTracejada, char[] erradas, char[][] forca, int tentativasRestantes){

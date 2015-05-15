@@ -3,17 +3,14 @@ package principal;
 import java.io.*;
 import java.util.*;
 
-import niveis.Dificil;
-import niveis.Facil;
-import niveis.Medio;
-import temas.Animais;
-import temas.Filmes;
-import temas.Profissoes;
+import niveis.*;
+import temas.*;
+import observadores.*;
 
 public class Controle {
 	static Scanner scan = new Scanner(System.in);
 	
-	public void controle(Animais animais, Filmes filmes, Profissoes profissoes, Tela tela, Jogador jogador,
+	public void controle(Animais animais, Filmes filmes, Profissoes profissoes, Tela tela, FimJogo fimJogo, BancoLetrasErradas bancoLetras, Forca forcaI, PalavraAnonima palavraAnonima,
 			Dificil dificil, Facil facil, Medio medio, char[] copiaTracejada, char[] erradas, char letra,
 			char[][] forca, int qAcertos, int h, int nivel, int tema)
 					throws IOException {
@@ -27,7 +24,8 @@ public class Controle {
 
 			palavra = animais.getPalavraArquivo();
 			tracejarPalavra(palavra, copiaTracejada);
-			tela.adicionaJogador(jogador.cria_se());
+			adicionaObservers(tela, fimJogo, bancoLetras, forcaI,
+					palavraAnonima);
 
 			while(true){
 				int qA = 0;
@@ -67,8 +65,9 @@ public class Controle {
 
 			palavra = filmes.getPalavraArquivo();
 			tracejarPalavra(palavra, copiaTracejada);
-			tela.adicionaJogador(jogador.cria_se());
-
+			adicionaObservers(tela, fimJogo, bancoLetras, forcaI,
+					palavraAnonima);
+			
 			while(true){
 				int qA = 0;
 
@@ -107,8 +106,9 @@ public class Controle {
 
 			palavra = profissoes.getPalavraArquivo();
 			tracejarPalavra(palavra, copiaTracejada);
-			tela.adicionaJogador(jogador.cria_se());
-
+			adicionaObservers(tela, fimJogo, bancoLetras, forcaI,
+					palavraAnonima);
+			
 			while(true){
 				int qA = 0;
 
@@ -148,7 +148,8 @@ public class Controle {
 
 			palavra = animais.getPalavraArquivo();
 			tracejarPalavra(palavra, copiaTracejada);
-			tela.adicionaJogador(jogador.cria_se());
+			adicionaObservers(tela, fimJogo, bancoLetras, forcaI,
+					palavraAnonima);
 
 			while(true){
 				int qA = 0;
@@ -188,8 +189,9 @@ public class Controle {
 
 			palavra = filmes.getPalavraArquivo();
 			tracejarPalavra(palavra, copiaTracejada);
-			tela.adicionaJogador(jogador.cria_se());
-
+			adicionaObservers(tela, fimJogo, bancoLetras, forcaI,
+					palavraAnonima);
+			
 			while(true){
 				int qA = 0;
 
@@ -228,7 +230,8 @@ public class Controle {
 
 			palavra = profissoes.getPalavraArquivo();
 			tracejarPalavra(palavra, copiaTracejada);
-			tela.adicionaJogador(jogador.cria_se());
+			adicionaObservers(tela, fimJogo, bancoLetras, forcaI,
+					palavraAnonima);
 
 			while(true){
 				int qA = 0;
@@ -268,7 +271,8 @@ public class Controle {
 
 			palavra = animais.getPalavraArquivo();
 			tracejarPalavra(palavra, copiaTracejada);
-			tela.adicionaJogador(jogador.cria_se());
+			adicionaObservers(tela, fimJogo, bancoLetras, forcaI,
+					palavraAnonima);
 
 			while(true){
 				int qA = 0;
@@ -308,7 +312,8 @@ public class Controle {
 
 			palavra = filmes.getPalavraArquivo();
 			tracejarPalavra(palavra, copiaTracejada);
-			tela.adicionaJogador(jogador.cria_se());
+			adicionaObservers(tela, fimJogo, bancoLetras, forcaI,
+					palavraAnonima);
 
 			while(true){
 				int qA = 0;
@@ -348,8 +353,9 @@ public class Controle {
 
 			palavra = profissoes.getPalavraArquivo();
 			tracejarPalavra(palavra, copiaTracejada);
-			tela.adicionaJogador(jogador.cria_se());
-
+			adicionaObservers(tela, fimJogo, bancoLetras, forcaI,
+					palavraAnonima);
+			
 			while(true){
 				int qA = 0;
 
@@ -388,7 +394,8 @@ public class Controle {
 
 			palavra = animais.getPalavraArquivo();
 			tracejarPalavra(palavra, copiaTracejada);
-			tela.adicionaJogador(jogador.cria_se());
+			adicionaObservers(tela, fimJogo, bancoLetras, forcaI,
+					palavraAnonima);
 
 			while(true){
 				int qA = 0;
@@ -428,7 +435,8 @@ public class Controle {
 
 			palavra = animais.getPalavraArquivo();
 			tracejarPalavra(palavra, copiaTracejada);
-			tela.adicionaJogador(jogador.cria_se());
+			adicionaObservers(tela, fimJogo, bancoLetras, forcaI,
+					palavraAnonima);
 
 			while(true){
 				int qA = 0;
@@ -468,7 +476,8 @@ public class Controle {
 
 			palavra = animais.getPalavraArquivo();
 			tracejarPalavra(palavra, copiaTracejada);
-			tela.adicionaJogador(jogador.cria_se());
+			adicionaObservers(tela, fimJogo, bancoLetras, forcaI,
+					palavraAnonima);
 
 			while(true){
 				int qA = 0;
@@ -503,6 +512,15 @@ public class Controle {
 				}
 			}
 		}
+	}
+
+	public void adicionaObservers(Tela tela, FimJogo fimJogo,
+			BancoLetrasErradas bancoLetras, Forca forcaI,
+			PalavraAnonima palavraAnonima) {
+		tela.adicionaObservers(fimJogo.cria_se());
+		tela.adicionaObservers(bancoLetras.cria_se());
+		tela.adicionaObservers(forcaI.cria_se());
+		tela.adicionaObservers(palavraAnonima.cria_se());
 	}
 
 	public int tamanho(String palavra){//criei para palavras compostas

@@ -3,6 +3,7 @@ package principal;
 import java.io.*;
 import java.util.*;
 
+import observadores.*;
 import niveis.*;
 import temas.*;
 
@@ -14,9 +15,14 @@ public class Jogo_da_Forca {
 		Filmes filmes = new Filmes();
 		Profissoes profissoes = new Profissoes();
 		
+		//Futuramente terei de criar uma classe de fabricar instâncias
 		Tela tela = new Tela();
-		Jogador jogador = new Jogador();
+		FimJogo fimJogo = new FimJogo();
+		BancoLetrasErradas bancoLetras = new BancoLetrasErradas();
+		Forca forcaI = new Forca();
+		PalavraAnonima palavraAnonima = new PalavraAnonima();
 		Controle controle =  new Controle();
+		//
 		
 		Dificil dificil = new Dificil();
 		Facil facil = new Facil();
@@ -39,11 +45,11 @@ public class Jogo_da_Forca {
 		if(escolha1 == 1){//vai pegar palavra do tema definido
 			tema = controle.menuTema();
 
-			controle.controle(animais, filmes, profissoes, tela, jogador, dificil, facil, medio, copiaTracejada, erradas,
+			controle.controle(animais, filmes, profissoes, tela, fimJogo, bancoLetras, forcaI, palavraAnonima, dificil, facil, medio, copiaTracejada, erradas,
 					letra, forca, qAcertos, h, nivel, tema);
 		}
 		else if(escolha1 == 0){
-			controle.controle(animais, filmes, profissoes, tela, jogador, dificil, facil, medio, copiaTracejada, erradas,
+			controle.controle(animais, filmes, profissoes, tela, fimJogo, bancoLetras, forcaI, palavraAnonima, dificil, facil, medio, copiaTracejada, erradas,
 					letra, forca, qAcertos, h, nivel, tema);
 		}
 		else{

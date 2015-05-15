@@ -3,7 +3,7 @@ package interfaces;
 import interfaces.Observer;;
 
 public interface Subject {
-	public void adicionaJogador(Observer jogador);
+	public void adicionaObservers(Observer observer);
 	public void remove();
-	public void notificaJogadores();
+	public void notificaObservers();
 }
