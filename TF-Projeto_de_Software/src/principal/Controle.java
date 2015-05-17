@@ -11,34 +11,145 @@ public class Controle {
 	static Scanner scan = new Scanner(System.in);
 
 	public void controle(Animais animais, Filmes filmes, Profissoes profissoes, Tela tela, FimJogo fimJogo, BancoLetrasErradas bancoLetras, Forca forcaI, PalavraAnonima palavraAnonima,
-			Dificil dificil, Facil facil, Medio medio, char[] copiaTracejada, char[] erradas, char letra,
-			char[][] forca, int qAcertos, int h, int nivel, int tema)
+			Dificil dificil, Facil facil, Medio medio, int nivel, int tema)
 					throws IOException {
 
+		char[] copiaTracejada = new char[100];
+		char[] erradas = new char[100];
+
+		char[][] forca = new char[10][20];
+
+		int qAcertos = 0, h = 0, t = tema, n = nivel;
+		char letra;
+
 		String palavra;
-		String resultado;
+		String resultado = null;
 		int tentativasRestantes = 0;
 
-		tentativasRestantes = definirTentativas(dificil, facil, medio, nivel, tentativasRestantes);
-		palavra = definirTema(animais, filmes, profissoes, tema);
+		tentativasRestantes = definirTentativas(dificil, facil, medio, n, tentativasRestantes);
+		palavra = definirPalavra(animais, filmes, profissoes, t);
 
 		tracejarPalavra(palavra, copiaTracejada);
 		adicionaObservers(tela, fimJogo, bancoLetras, forcaI, palavraAnonima);
 
 		while(true){
-			int qA = 0;
+			int qA = 0, escolha2;
 
-			tela.setEnviarDadosAlterados(copiaTracejada, erradas, forca, tentativasRestantes);
+			limparConsole();
+			tela.setEnviarDadosAlterados(copiaTracejada, erradas, forca, tentativasRestantes, resultado);
 
 			if(qAcertos == tamanho(palavra)){
 				resultado = "VOCÊ ACERTOU! PARABÉNS!";
-				tela.setResultado(resultado);
-				break;
+				tela.setEnviarDadosAlterados(null, null, null, 0, resultado);
+
+				escolha2 = menuFimDeJogo();
+
+				if(escolha2 == 1){ //troca de palavra
+					tentativasRestantes = definirTentativas(dificil, facil, medio, n, tentativasRestantes);
+					palavra = definirPalavra(animais, filmes, profissoes, t);
+					tracejarPalavra(palavra, copiaTracejada);
+
+					letra = '\0';
+					for(int i = 0; i < erradas.length; i++)
+						erradas[i] = '\0';
+					resultado = null;
+					qAcertos = 0;
+					h = 0;
+
+					tela.setEnviarDadosAlterados(copiaTracejada, erradas, forca, tentativasRestantes, resultado);
+				}
+				else if(escolha2 == 2){ //troca de nível
+					limparConsole();
+					n = menuNiveis();
+					tentativasRestantes = definirTentativas(dificil, facil, medio, n, tentativasRestantes);
+					palavra = definirPalavra(animais, filmes, profissoes, t);
+					tracejarPalavra(palavra, copiaTracejada);
+
+					for(int i = 0; i < erradas.length; i++)
+						erradas[i] = '\0';
+					letra = '\0';
+					resultado = null;
+					qAcertos = 0;
+					h = 0;
+
+					tela.setEnviarDadosAlterados(copiaTracejada, erradas, forca, tentativasRestantes, resultado);
+				}
+				else if(escolha2 == 3){
+					limparConsole();
+					t = menuTema();
+					tentativasRestantes = definirTentativas(dificil, facil, medio, n, tentativasRestantes);
+					palavra = definirPalavra(animais, filmes, profissoes, t);
+					tracejarPalavra(palavra, copiaTracejada);
+
+					for(int i = 0; i < erradas.length; i++)
+						erradas[i] = '\0';
+					letra = '\0';
+					resultado = null;
+					qAcertos = 0;
+					h = 0;
+
+					tela.setEnviarDadosAlterados(copiaTracejada, erradas, forca, tentativasRestantes, resultado);
+				}
+				else if(escolha2 == 0){
+					tela.remove();
+				}
 			}
 			else if(tentativasRestantes == 0){
 				resultado = "VOCÊ PERDEU. TENTE NOVAMENTE!";
-				tela.setResultado(resultado);
-				break;
+				tela.setEnviarDadosAlterados(null, null, null, 0, resultado);
+
+				System.out.println();
+				escolha2 = menuFimDeJogo();
+
+				if(escolha2 == 1){ //troca de palavra
+					tentativasRestantes = definirTentativas(dificil, facil, medio, n, tentativasRestantes);
+					palavra = definirPalavra(animais, filmes, profissoes, t);
+					tracejarPalavra(palavra, copiaTracejada);
+
+					letra = '\0';
+					for(int i = 0; i < erradas.length; i++)
+						erradas[i] = '\0';
+					resultado = null;
+					qAcertos = 0;
+					h = 0;
+
+					tela.setEnviarDadosAlterados(copiaTracejada, erradas, forca, tentativasRestantes, resultado);
+				}
+				else if(escolha2 == 2){ //troca de nível
+					limparConsole();
+					n = menuNiveis();
+					tentativasRestantes = definirTentativas(dificil, facil, medio, n, tentativasRestantes);
+					palavra = definirPalavra(animais, filmes, profissoes, t);
+					tracejarPalavra(palavra, copiaTracejada);
+
+					for(int i = 0; i < erradas.length; i++)
+						erradas[i] = '\0';
+					letra = '\0';
+					resultado = null;
+					qAcertos = 0;
+					h = 0;
+
+					tela.setEnviarDadosAlterados(copiaTracejada, erradas, forca, tentativasRestantes, resultado);
+				}
+				else if(escolha2 == 3){
+					limparConsole();
+					t = menuTema();
+					tentativasRestantes = definirTentativas(dificil, facil, medio, n, tentativasRestantes);
+					palavra = definirPalavra(animais, filmes, profissoes, t);
+					tracejarPalavra(palavra, copiaTracejada);
+					
+					for(int i = 0; i < erradas.length; i++)
+						erradas[i] = '\0';
+					letra = '\0';
+					resultado = null;
+					qAcertos = 0;
+					h = 0;
+
+					tela.setEnviarDadosAlterados(copiaTracejada, erradas, forca, tentativasRestantes, resultado);
+				}
+				else if(escolha2 == 0){
+					tela.remove();
+				}
 			}
 
 			System.out.println();
@@ -46,10 +157,15 @@ public class Controle {
 			letra = scan.next().charAt(0);
 
 			for(int i = 0; i < palavra.length(); i++){
-				if(palavra.charAt(i) == letra){
+				if(palavra.charAt(i) == letra && copiaTracejada[i] != letra){
 					qAcertos++;
 					qA++;
 					copiaTracejada[i] = letra;
+				}
+				else if(copiaTracejada[i] == letra){
+					System.out.println("VOCÊ JÁ DIGITOU ESSA LETRA!");
+					qA++;
+					break;
 				}
 			}
 
@@ -59,8 +175,13 @@ public class Controle {
 			}
 		}
 	}
+	public void limparConsole() {
+		for(int i = 0; i < 100; i++){
+			System.out.println("\b");
+		}
+	}
 
-	public String definirTema(Animais animais, Filmes filmes,
+	public String definirPalavra(Animais animais, Filmes filmes,
 			Profissoes profissoes, int tema) throws IOException {
 		String palavra;
 		if(tema == 3){
@@ -113,9 +234,20 @@ public class Controle {
 		return tamanhoReal;
 	}
 
+	public int menuFimDeJogo(){
+		int escolha2 = 0;
+		System.out.println("| 1 - Continuar o jogo com o mesmo tema e mesmo nível |");
+		System.out.println("| 2 - Trocar de nível e continuar com mesmo tema      |");
+		System.out.println("| 3 - Trocar de tema e continuar com mesmo nível      |");
+		System.out.println("| 0 - Sair do jogo");
+		System.out.print("Aqui: ");
+		escolha2 = scan.nextInt();
+		return escolha2;
+	}
+
 	public int menuTema() {
 		int tema = 0;
-		System.out.println("|-------Tema-----|");
+		System.out.println("|------Tema------|");
 		System.out.println("|----------------|");
 		System.out.println("| 1 - Animais    |");
 		System.out.println("| 2 - Filmes     |");
@@ -128,8 +260,8 @@ public class Controle {
 
 	public int menuTemaOuAleatoria() {
 		int escolha1 = 0;
-		System.out.println("Digite 1 (um) para escolher o tema da palavra.");
-		System.out.println("Digite 0 (zero) para adivinhar uma palavra de tema aleatório.");
+		System.out.println("| 1 - Escolher o tema da palavra              |");
+		System.out.println("| 0 - Adivinhar uma palavra de tema aleatório |");
 		System.out.print("Aqui: ");
 		escolha1 = scan.nextInt();
 		return escolha1;

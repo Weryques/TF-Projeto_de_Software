@@ -15,44 +15,44 @@ public class Jogo_da_Forca {
 		Filmes filmes = new Filmes();
 		Profissoes profissoes = new Profissoes();
 		
-		//Futuramente terei de criar uma classe de fabricar instâncias
 		Tela tela = new Tela();
+		
 		FimJogo fimJogo = new FimJogo();
 		BancoLetrasErradas bancoLetras = new BancoLetrasErradas();
 		Forca forcaI = new Forca();
 		PalavraAnonima palavraAnonima = new PalavraAnonima();
-		Controle controle =  new Controle();
-		//
+		
+		Controle ctrl =  new Controle();
 		
 		Dificil dificil = new Dificil();
 		Facil facil = new Facil();
 		Medio medio = new Medio();
 
-		char[] copiaTracejada = new char[100];
-		char[] erradas = new char[100];
-
-		char letra = 0;
-		char[][] forca = new char[10][20];
-
-		int qAcertos = 0, h = 0;
 		int nivel = 0, tema = 0, escolha1 = 0;
 
-		nivel = controle.menuNiveis();
+		nivel = ctrl.menuNiveis();
 		System.out.println();
-		escolha1 = controle.menuTemaOuAleatoria();		
+		escolha1 = ctrl.menuTemaOuAleatoria();		
 		System.out.println();
-
+		
+		ctrl.limparConsole();
+		
 		if(escolha1 == 1){//vai pegar palavra do tema definido
-			tema = controle.menuTema();
-
-			controle.controle(animais, filmes, profissoes, tela, fimJogo, bancoLetras, forcaI, palavraAnonima, dificil, facil, medio, copiaTracejada, erradas,
-					letra, forca, qAcertos, h, nivel, tema);
+			tema = ctrl.menuTema();
+			
+			ctrl.limparConsole();
+			
+			ctrl.controle(animais, filmes, profissoes, tela, fimJogo, bancoLetras, forcaI, palavraAnonima, dificil, facil, medio, nivel, tema);
+			
 		}
 		else if(escolha1 == 0){
-			controle.controle(animais, filmes, profissoes, tela, fimJogo, bancoLetras, forcaI, palavraAnonima, dificil, facil, medio, copiaTracejada, erradas,
-					letra, forca, qAcertos, h, nivel, tema);
+			ctrl.limparConsole();
+			
+			ctrl.controle(animais, filmes, profissoes, tela, fimJogo, bancoLetras, forcaI, palavraAnonima, dificil, facil, medio, nivel, tema);
+			
 		}
 		else{
+			ctrl.limparConsole();
 			System.out.println("Opção inválida!");
 		}
 	}

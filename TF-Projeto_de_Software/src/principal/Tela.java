@@ -36,15 +36,11 @@ public class Tela implements Subject{
 		notificaObservers();
 	}
 	
-	public void setEnviarDadosAlterados(char[] copiaTracejada, char[] erradas, char[][] forca, int tentativasRestantes){
+	public void setEnviarDadosAlterados(char[] copiaTracejada, char[] erradas, char[][] forca, int tentativasRestantes, String resultado){
 		this.copiaTracejada = copiaTracejada;
 		this.erradas = erradas;
 		this.forca = forca;
 		this.tentativasRestantes = tentativasRestantes;
-		informarDadosAlterados();
-	}
-	
-	public void setResultado(String resultado) {
 		this.resultado = resultado;
 		informarDadosAlterados();
 	}

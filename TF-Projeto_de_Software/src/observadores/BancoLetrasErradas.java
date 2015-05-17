@@ -8,15 +8,17 @@ public class BancoLetrasErradas implements Observer {
 	public void atualiza(char[] copiaTracejada, String resultado,
 			int tentativasRestantes, char[][] forca, char[] erradas) {
 		
-		System.out.println();
+		
 		
 		if(erradas != null){
+			System.out.println();
 			for(int i = 0; i < erradas.length; i++){
 				System.out.print(" "+ erradas[i] +" ");
 			}
+			System.out.println();
 		}	
 		
-		System.out.println();
+
 	}
 	
 	public BancoLetrasErradas cria_se(){
