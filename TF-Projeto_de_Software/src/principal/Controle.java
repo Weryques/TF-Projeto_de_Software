@@ -47,11 +47,16 @@ public class Controle {
 				if(escolha2 == 1){ //troca de palavra
 					tentativasRestantes = definirTentativas(dificil, facil, medio, n, tentativasRestantes);
 					palavra = definirPalavra(animais, filmes, profissoes, t);
+					
+					for(int i = 0; i < copiaTracejada.length; i++)
+						copiaTracejada[i] = '\0';
+					
 					tracejarPalavra(palavra, copiaTracejada);
 
-					letra = '\0';
+					
 					for(int i = 0; i < erradas.length; i++)
 						erradas[i] = '\0';
+					letra = '\0';
 					resultado = null;
 					qAcertos = 0;
 					h = 0;
@@ -63,6 +68,10 @@ public class Controle {
 					n = menuNiveis();
 					tentativasRestantes = definirTentativas(dificil, facil, medio, n, tentativasRestantes);
 					palavra = definirPalavra(animais, filmes, profissoes, t);
+					
+					for(int i = 0; i < copiaTracejada.length; i++)
+						copiaTracejada[i] = '\0';
+					
 					tracejarPalavra(palavra, copiaTracejada);
 
 					for(int i = 0; i < erradas.length; i++)
@@ -79,6 +88,10 @@ public class Controle {
 					t = menuTema();
 					tentativasRestantes = definirTentativas(dificil, facil, medio, n, tentativasRestantes);
 					palavra = definirPalavra(animais, filmes, profissoes, t);
+					
+					for(int i = 0; i < copiaTracejada.length; i++)
+						copiaTracejada[i] = '\0';
+					
 					tracejarPalavra(palavra, copiaTracejada);
 
 					for(int i = 0; i < erradas.length; i++)
@@ -104,11 +117,16 @@ public class Controle {
 				if(escolha2 == 1){ //troca de palavra
 					tentativasRestantes = definirTentativas(dificil, facil, medio, n, tentativasRestantes);
 					palavra = definirPalavra(animais, filmes, profissoes, t);
+					
+					for(int i = 0; i < copiaTracejada.length; i++)
+						copiaTracejada[i] = '\0';
+					
 					tracejarPalavra(palavra, copiaTracejada);
 
-					letra = '\0';
+					
 					for(int i = 0; i < erradas.length; i++)
 						erradas[i] = '\0';
+					letra = '\0';
 					resultado = null;
 					qAcertos = 0;
 					h = 0;
@@ -120,6 +138,10 @@ public class Controle {
 					n = menuNiveis();
 					tentativasRestantes = definirTentativas(dificil, facil, medio, n, tentativasRestantes);
 					palavra = definirPalavra(animais, filmes, profissoes, t);
+					
+					for(int i = 0; i < copiaTracejada.length; i++)
+						copiaTracejada[i] = '\0';
+					
 					tracejarPalavra(palavra, copiaTracejada);
 
 					for(int i = 0; i < erradas.length; i++)
@@ -136,6 +158,10 @@ public class Controle {
 					t = menuTema();
 					tentativasRestantes = definirTentativas(dificil, facil, medio, n, tentativasRestantes);
 					palavra = definirPalavra(animais, filmes, profissoes, t);
+					
+					for(int i = 0; i < copiaTracejada.length; i++)
+						copiaTracejada[i] = '\0';
+					
 					tracejarPalavra(palavra, copiaTracejada);
 					
 					for(int i = 0; i < erradas.length; i++)
