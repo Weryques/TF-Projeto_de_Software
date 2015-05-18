@@ -11,27 +11,68 @@ public class Controle {
 	static Scanner scan = new Scanner(System.in);
 
 	public void controle(Animais animais, Filmes filmes, Profissoes profissoes, Tela tela, FimJogo fimJogo, BancoLetrasErradas bancoLetras, Forca forcaI, PalavraAnonima palavraAnonima,
-			Dificil dificil, Facil facil, Medio medio, int nivel, int tema)
+			Dificil dificil, Facil facil, Medio medio)
 					throws IOException {
-
+//-------
 		char[] copiaTracejada = new char[100];
 		char[] erradas = new char[100];
 
 		char[][] forca = new char[10][20];
 
-		int qAcertos = 0, h = 0, t = tema, n = nivel;
+		int qAcertos = 0, h = 0, tema = 0, nivel = 0;
 		char letra;
 
 		String palavra;
 		String resultado = null;
 		int tentativasRestantes = 0;
+		
+		int escolha1 = 0;
+//-------
+		while(true){
+			nivel = menuNiveis();
+			if(nivel == 1 || nivel == 2 || nivel == 3){
+				System.out.println();
+				escolha1 = menuTemaOuAleatoria();		
+				System.out.println();
 
-		tentativasRestantes = definirTentativas(dificil, facil, medio, n, tentativasRestantes);
-		palavra = definirPalavra(animais, filmes, profissoes, t);
+				limparConsole();
+
+				if(escolha1 == 1){//vai pegar palavra do tema definido
+					tema = menuTema();
+					if(tema == 0 || tema == 1 || tema == 2 || tema == 3){
+						limparConsole();
+
+						break;
+					}
+					else{
+						limparConsole();
+						System.out.println("Opção inválida! Tente de novo.");
+					}
+
+				}
+				else if(escolha1 == 0){
+					limparConsole();
+
+					break;
+
+				}
+				else{
+					limparConsole();
+					System.out.println("Opção inválida! Tente de novo.");
+				}
+			}
+			else{
+				limparConsole();
+				System.out.println("Opção inválida! Tente de novo.");
+			}
+		}
+//------
+		tentativasRestantes = definirTentativas(dificil, facil, medio, nivel, tentativasRestantes);
+		palavra = definirPalavra(animais, filmes, profissoes, tema);
 
 		tracejarPalavra(palavra, copiaTracejada);
 		adicionaObservers(tela, fimJogo, bancoLetras, forcaI, palavraAnonima);
-
+//------
 		while(true){
 			int qA = 0, escolha2;
 
@@ -42,139 +83,154 @@ public class Controle {
 				resultado = "VOCÊ ACERTOU! PARABÉNS!";
 				tela.setEnviarDadosAlterados(null, null, null, 0, resultado);
 
-				escolha2 = menuFimDeJogo();
+				while(true){
+					escolha2 = menuFimDeJogo();
+					if(escolha2 == 1 || escolha2 == 2 || escolha2 == 3 || escolha2 == 0){
 
-				if(escolha2 == 1){ //troca de palavra
-					tentativasRestantes = definirTentativas(dificil, facil, medio, n, tentativasRestantes);
-					palavra = definirPalavra(animais, filmes, profissoes, t);
-					
-					for(int i = 0; i < copiaTracejada.length; i++)
-						copiaTracejada[i] = '\0';
-					
-					tracejarPalavra(palavra, copiaTracejada);
+						if(escolha2 == 1){ //troca de palavra
+							tentativasRestantes = definirTentativas(dificil, facil, medio, nivel, tentativasRestantes);
+							palavra = definirPalavra(animais, filmes, profissoes, tema);
 
-					
-					for(int i = 0; i < erradas.length; i++)
-						erradas[i] = '\0';
-					letra = '\0';
-					resultado = null;
-					qAcertos = 0;
-					h = 0;
+							for(int i = 0; i < copiaTracejada.length; i++)
+								copiaTracejada[i] = '\0';
 
-					tela.setEnviarDadosAlterados(copiaTracejada, erradas, forca, tentativasRestantes, resultado);
-				}
-				else if(escolha2 == 2){ //troca de nível
-					limparConsole();
-					n = menuNiveis();
-					tentativasRestantes = definirTentativas(dificil, facil, medio, n, tentativasRestantes);
-					palavra = definirPalavra(animais, filmes, profissoes, t);
-					
-					for(int i = 0; i < copiaTracejada.length; i++)
-						copiaTracejada[i] = '\0';
-					
-					tracejarPalavra(palavra, copiaTracejada);
+							tracejarPalavra(palavra, copiaTracejada);
 
-					for(int i = 0; i < erradas.length; i++)
-						erradas[i] = '\0';
-					letra = '\0';
-					resultado = null;
-					qAcertos = 0;
-					h = 0;
 
-					tela.setEnviarDadosAlterados(copiaTracejada, erradas, forca, tentativasRestantes, resultado);
-				}
-				else if(escolha2 == 3){
-					limparConsole();
-					t = menuTema();
-					tentativasRestantes = definirTentativas(dificil, facil, medio, n, tentativasRestantes);
-					palavra = definirPalavra(animais, filmes, profissoes, t);
-					
-					for(int i = 0; i < copiaTracejada.length; i++)
-						copiaTracejada[i] = '\0';
-					
-					tracejarPalavra(palavra, copiaTracejada);
+							for(int i = 0; i < erradas.length; i++)
+								erradas[i] = '\0';
+							letra = '\0';
+							resultado = null;
+							qAcertos = 0;
+							h = 0;
 
-					for(int i = 0; i < erradas.length; i++)
-						erradas[i] = '\0';
-					letra = '\0';
-					resultado = null;
-					qAcertos = 0;
-					h = 0;
+							tela.setEnviarDadosAlterados(copiaTracejada, erradas, forca, tentativasRestantes, resultado);
+						}
+						else if(escolha2 == 2){ //troca de nível
+							limparConsole();
+							nivel = menuNiveis();
+							tentativasRestantes = definirTentativas(dificil, facil, medio, nivel, tentativasRestantes);
+							palavra = definirPalavra(animais, filmes, profissoes, tema);
 
-					tela.setEnviarDadosAlterados(copiaTracejada, erradas, forca, tentativasRestantes, resultado);
-				}
-				else if(escolha2 == 0){
-					tela.remove();
+							for(int i = 0; i < copiaTracejada.length; i++)
+								copiaTracejada[i] = '\0';
+
+							tracejarPalavra(palavra, copiaTracejada);
+
+							for(int i = 0; i < erradas.length; i++)
+								erradas[i] = '\0';
+							letra = '\0';
+							resultado = null;
+							qAcertos = 0;
+							h = 0;
+
+							tela.setEnviarDadosAlterados(copiaTracejada, erradas, forca, tentativasRestantes, resultado);
+						}
+						else if(escolha2 == 3){ //troca de tema
+							limparConsole();
+							tema = menuTema();
+							tentativasRestantes = definirTentativas(dificil, facil, medio, nivel, tentativasRestantes);
+							palavra = definirPalavra(animais, filmes, profissoes, tema);
+
+							for(int i = 0; i < copiaTracejada.length; i++)
+								copiaTracejada[i] = '\0';
+
+							tracejarPalavra(palavra, copiaTracejada);
+
+							for(int i = 0; i < erradas.length; i++)
+								erradas[i] = '\0';
+							letra = '\0';
+							resultado = null;
+							qAcertos = 0;
+							h = 0;
+
+							tela.setEnviarDadosAlterados(copiaTracejada, erradas, forca, tentativasRestantes, resultado);
+						}
+						else if(escolha2 == 0){ //remove todos os observer e sai do jogo
+							tela.remove();
+						}
+						break; //para o loop mais interno
+					}
+					else{
+						System.out.println("Opção inválida! Tente novamente.");
+					}
 				}
 			}
 			else if(tentativasRestantes == 0){
 				resultado = "VOCÊ PERDEU. TENTE NOVAMENTE!";
 				tela.setEnviarDadosAlterados(null, null, null, 0, resultado);
 
-				System.out.println();
-				escolha2 = menuFimDeJogo();
+				while(true){
+					escolha2 = menuFimDeJogo();
+					if(escolha2 == 1 || escolha2 == 2 || escolha2 == 3 || escolha2 == 0){
 
-				if(escolha2 == 1){ //troca de palavra
-					tentativasRestantes = definirTentativas(dificil, facil, medio, n, tentativasRestantes);
-					palavra = definirPalavra(animais, filmes, profissoes, t);
-					
-					for(int i = 0; i < copiaTracejada.length; i++)
-						copiaTracejada[i] = '\0';
-					
-					tracejarPalavra(palavra, copiaTracejada);
+						if(escolha2 == 1){ //troca de palavra
+							tentativasRestantes = definirTentativas(dificil, facil, medio, nivel, tentativasRestantes);
+							palavra = definirPalavra(animais, filmes, profissoes, tema);
 
-					
-					for(int i = 0; i < erradas.length; i++)
-						erradas[i] = '\0';
-					letra = '\0';
-					resultado = null;
-					qAcertos = 0;
-					h = 0;
+							for(int i = 0; i < copiaTracejada.length; i++)
+								copiaTracejada[i] = '\0';
 
-					tela.setEnviarDadosAlterados(copiaTracejada, erradas, forca, tentativasRestantes, resultado);
-				}
-				else if(escolha2 == 2){ //troca de nível
-					limparConsole();
-					n = menuNiveis();
-					tentativasRestantes = definirTentativas(dificil, facil, medio, n, tentativasRestantes);
-					palavra = definirPalavra(animais, filmes, profissoes, t);
-					
-					for(int i = 0; i < copiaTracejada.length; i++)
-						copiaTracejada[i] = '\0';
-					
-					tracejarPalavra(palavra, copiaTracejada);
+							tracejarPalavra(palavra, copiaTracejada);
 
-					for(int i = 0; i < erradas.length; i++)
-						erradas[i] = '\0';
-					letra = '\0';
-					resultado = null;
-					qAcertos = 0;
-					h = 0;
 
-					tela.setEnviarDadosAlterados(copiaTracejada, erradas, forca, tentativasRestantes, resultado);
-				}
-				else if(escolha2 == 3){
-					limparConsole();
-					t = menuTema();
-					tentativasRestantes = definirTentativas(dificil, facil, medio, n, tentativasRestantes);
-					palavra = definirPalavra(animais, filmes, profissoes, t);
-					
-					for(int i = 0; i < copiaTracejada.length; i++)
-						copiaTracejada[i] = '\0';
-					
-					tracejarPalavra(palavra, copiaTracejada);
-					
-					for(int i = 0; i < erradas.length; i++)
-						erradas[i] = '\0';
-					letra = '\0';
-					resultado = null;
-					qAcertos = 0;
-					h = 0;
+							for(int i = 0; i < erradas.length; i++)
+								erradas[i] = '\0';
+							letra = '\0';
+							resultado = null;
+							qAcertos = 0;
+							h = 0;
 
-					tela.setEnviarDadosAlterados(copiaTracejada, erradas, forca, tentativasRestantes, resultado);
-				}
-				else if(escolha2 == 0){
-					tela.remove();
+							tela.setEnviarDadosAlterados(copiaTracejada, erradas, forca, tentativasRestantes, resultado);
+						}
+						else if(escolha2 == 2){ //troca de nível
+							limparConsole();
+							nivel = menuNiveis();
+							tentativasRestantes = definirTentativas(dificil, facil, medio, nivel, tentativasRestantes);
+							palavra = definirPalavra(animais, filmes, profissoes, tema);
+
+							for(int i = 0; i < copiaTracejada.length; i++)
+								copiaTracejada[i] = '\0';
+
+							tracejarPalavra(palavra, copiaTracejada);
+
+							for(int i = 0; i < erradas.length; i++)
+								erradas[i] = '\0';
+							letra = '\0';
+							resultado = null;
+							qAcertos = 0;
+							h = 0;
+
+							tela.setEnviarDadosAlterados(copiaTracejada, erradas, forca, tentativasRestantes, resultado);
+						}
+						else if(escolha2 == 3){
+							limparConsole();
+							tema = menuTema();
+							tentativasRestantes = definirTentativas(dificil, facil, medio, nivel, tentativasRestantes);
+							palavra = definirPalavra(animais, filmes, profissoes, tema);
+
+							for(int i = 0; i < copiaTracejada.length; i++)
+								copiaTracejada[i] = '\0';
+
+							tracejarPalavra(palavra, copiaTracejada);
+
+							for(int i = 0; i < erradas.length; i++)
+								erradas[i] = '\0';
+							letra = '\0';
+							resultado = null;
+							qAcertos = 0;
+							h = 0;
+
+							tela.setEnviarDadosAlterados(copiaTracejada, erradas, forca, tentativasRestantes, resultado);
+						}
+						else if(escolha2 == 0){
+							tela.remove();
+						}
+						break; //para o loop mais interno
+					}
+					else{
+						System.out.println("Opção inválida! Tente novamente.");
+					}
 				}
 			}
 
@@ -206,7 +262,7 @@ public class Controle {
 			System.out.println("\b");
 		}
 	}
-
+//--
 	public String definirPalavra(Animais animais, Filmes filmes,
 			Profissoes profissoes, int tema) throws IOException {
 		String palavra;
