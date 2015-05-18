@@ -1,5 +1,7 @@
 package principal;
 
-public class Tema {
+import interfaces.TipoTemaStrategy;
 
+public class Tema {
+	TipoTemaStrategy temaStrategy;
 }

@@ -3,6 +3,6 @@ package interfaces;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-public interface TipoTema {
+public interface TipoTemaStrategy {
 	public String getPalavraArquivo() throws IOException, FileNotFoundException;
 }

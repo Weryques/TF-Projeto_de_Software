@@ -1,29 +1,25 @@
-package temas;
+package temasStrategy;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Scanner;
+import java.io.*;
+import java.util.*;
 
-import interfaces.TipoTema;
+import interfaces.TipoTemaStrategy;
 
-public class Profissoes implements TipoTema {
+public class Profissoes implements TipoTemaStrategy {
 
 	@Override
 	public String getPalavraArquivo() throws IOException {
 		String palavra = null;
-		List listaDePalavras = new ArrayList();
+		List<String> listaDePalavras = new ArrayList<String>();
 		Scanner scan = extracted().useDelimiter("\\\n");
+		Random rand = new Random();
 		
 		while(scan.hasNext()){
 			listaDePalavras.add(scan.next());
 		}
 		
 		Collections.shuffle(listaDePalavras);
-		palavra = (String) listaDePalavras.get(0);
+		palavra = (String) listaDePalavras.get(rand.nextInt(listaDePalavras.size()+1));
 		
 		return palavra;
 	}

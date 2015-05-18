@@ -3,8 +3,8 @@ package principal;
 import java.io.*;
 import java.util.*;
 
-import niveis.*;
-import temas.*;
+import niveisStrategy.*;
+import temasStrategy.*;
 import observadores.*;
 
 public class Controle {
@@ -41,7 +41,6 @@ public class Controle {
 					tema = menuTema();
 					if(tema == 0 || tema == 1 || tema == 2 || tema == 3){
 						limparConsole();
-
 						break;
 					}
 					else{
@@ -52,7 +51,6 @@ public class Controle {
 				}
 				else if(escolha1 == 0){
 					limparConsole();
-
 					break;
 
 				}
@@ -152,6 +150,7 @@ public class Controle {
 						break; //para o loop mais interno
 					}
 					else{
+						limparConsole();
 						System.out.println("Opção inválida! Tente novamente.");
 					}
 				}
@@ -229,6 +228,7 @@ public class Controle {
 						break; //para o loop mais interno
 					}
 					else{
+						limparConsole();
 						System.out.println("Opção inválida! Tente novamente.");
 					}
 				}

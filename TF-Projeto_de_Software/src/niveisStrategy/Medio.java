@@ -1,9 +1,9 @@
-package niveis;
+package niveisStrategy;
 
-import interfaces.TipoNiveis;
+import interfaces.TipoNiveisStrategy;
 
-public class Facil implements TipoNiveis {
-	int tentativasRestantes = 13;
+public class Medio implements TipoNiveisStrategy {
+	int tentativasRestantes = 10;
 
 	@Override
 	public void desenhaCorpo(int quantErro, char[][] forca) {

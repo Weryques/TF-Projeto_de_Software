@@ -1,6 +1,6 @@
 package interfaces;
 
-public interface TipoNiveis {
+public interface TipoNiveisStrategy {
 	
 	public void desenhaCorpo(int quantErro, char[][] forca);
 	

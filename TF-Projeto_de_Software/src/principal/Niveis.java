@@ -1,5 +1,7 @@
 package principal;
 
-public class Niveis {
+import interfaces.TipoNiveisStrategy;
 
+public class Niveis {
+	TipoNiveisStrategy niveisStretegy;
 }

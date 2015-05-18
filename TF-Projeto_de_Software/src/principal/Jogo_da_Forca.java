@@ -4,8 +4,8 @@ import java.io.*;
 import java.util.*;
 
 import observadores.*;
-import niveis.*;
-import temas.*;
+import niveisStrategy.*;
+import temasStrategy.*;
 
 public class Jogo_da_Forca {
 	static Scanner scan = new Scanner(System.in);
