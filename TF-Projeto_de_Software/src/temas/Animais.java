@@ -1,14 +1,16 @@
-package temasStrategy;
+package temas;
 
-import java.io.*;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.*;
 
-import interfaces.TipoTemaStrategy;
+import interfaces.Tema;
 
-public class Profissoes implements TipoTemaStrategy {
+public class Animais implements Tema{
 
 	@Override
-	public String getPalavraArquivo() throws IOException {
+	public String getPalavraArquivo() throws IOException{		
 		String palavra = null;
 		List<String> listaDePalavras = new ArrayList<String>();
 		Scanner scan = extracted().useDelimiter("\\\n");
@@ -25,6 +27,7 @@ public class Profissoes implements TipoTemaStrategy {
 	}
 
 	private Scanner extracted() throws FileNotFoundException {
-		return new Scanner(new FileReader("Profissoes.txt"));
+		return new Scanner(new FileReader("Animais.txt"));
 	}
+
 }

@@ -1,8 +1,8 @@
-package niveisStrategy;
+package niveis;
 
-import interfaces.TipoNiveisStrategy;
+import interfaces.Nivel;
 
-public class Facil implements TipoNiveisStrategy {
+public class Facil implements Nivel {
 	int tentativasRestantes = 13;
 
 	@Override

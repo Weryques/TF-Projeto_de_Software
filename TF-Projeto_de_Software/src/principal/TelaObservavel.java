@@ -1,11 +1,11 @@
 package principal;
 
-import interfaces.Subject;
+import interfaces.Observavel;
 import interfaces.Observer;
 
 import java.util.*;
 
-public class Tela implements Subject{
+public class TelaObservavel implements Observavel{
 	List<Observer> observadores = new ArrayList<Observer>();
 	String resultado;
 
