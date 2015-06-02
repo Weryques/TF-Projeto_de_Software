@@ -3,6 +3,8 @@ package principal;
 import java.io.*;
 import java.util.*;
 
+import estrategias.LetraPorLetra;
+import estrategias.TodasLetras;
 import observadores.*;
 import niveis.*;
 import temas.*;
@@ -11,6 +13,7 @@ public class Jogo_da_Forca {
 	static Scanner scan = new Scanner(System.in);
 
 	public static void main(String[] args) throws Exception, IOException{
+		int modo;
 		Animais animais = new Animais();
 		Filmes filmes = new Filmes();
 		Profissoes profissoes = new Profissoes();
@@ -26,9 +29,20 @@ public class Jogo_da_Forca {
 		Facil facil = new Facil();
 		Medio medio = new Medio();
 		Visao visao = new Visao();
+		Controle controle = new Controle();
 		
-		Controle ctrl = new Controle(visao, animais, filmes, profissoes, tela, fimJogo, bancoLetras, forcaI, palavraAnonima, dificil, facil, medio);
-		ctrl.controle();
-
+		PalavraContext palavraCont = new PalavraContext();
+		palavraCont.setLetraPorLetra(new LetraPorLetra(controle, palavraCont, visao, animais, filmes, profissoes, tela, fimJogo, bancoLetras, forcaI, palavraAnonima, dificil, facil, medio));
+		palavraCont.setTodasLetras(new TodasLetras(controle, palavraCont, visao, animais, filmes, profissoes, tela, fimJogo, bancoLetras, forcaI, palavraAnonima, dificil, facil, medio));
+		
+		modo = visao.menuEstrategia();
+		
+		if(modo == 1){
+			palavraCont.todasLetras();
+		}
+		else if(modo == 0){
+			palavraCont.letraPorLetra();
+		}
+		
 	}
 }
