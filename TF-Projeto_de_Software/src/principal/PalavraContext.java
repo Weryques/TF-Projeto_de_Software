@@ -7,8 +7,6 @@ import interfaces.AdivinhacaoStrategy;
 public class PalavraContext {
 	AdivinhacaoStrategy todasLetras;
 	AdivinhacaoStrategy letraPorLetra;
-	
-	
 
 	public void setTodasLetras(AdivinhacaoStrategy todasLetras) {
 		this.todasLetras = todasLetras;

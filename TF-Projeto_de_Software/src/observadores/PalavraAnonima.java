@@ -6,7 +6,7 @@ public class PalavraAnonima implements Observer{
 
 	@Override
 	public void atualiza(char[] copiaTracejada, String resultado,
-			int tentativasRestantes, char[][] forca, char[] erradas) {
+			int tentativasRestantes, char[] erradas) {
 
 
 		if(copiaTracejada != null){
@@ -19,7 +19,7 @@ public class PalavraAnonima implements Observer{
 		
 	}
 
-	public PalavraAnonima cria_se(){
+	public Observer cria_se(){
 		return this;
 	}
 }

@@ -10,7 +10,6 @@ public class TelaObservavel implements Observavel{
 	String resultado;
 
 	int tentativasRestantes;
-	char[][] forca;
 	char[] erradas, copiaTracejada;
 		
 	@Override
@@ -28,7 +27,7 @@ public class TelaObservavel implements Observavel{
 		Iterator<Observer> iterator = observadores.iterator();
 		while (iterator.hasNext()) {
 			Observer jogador = (Observer)iterator.next();
-			jogador.atualiza(copiaTracejada, resultado, tentativasRestantes, forca, erradas);
+			jogador.atualiza(copiaTracejada, resultado, tentativasRestantes, erradas);
 		}
 	}
 	
@@ -36,10 +35,9 @@ public class TelaObservavel implements Observavel{
 		notificaObservers();
 	}
 	
-	public void setEnviarDadosAlterados(char[] copiaTracejada, char[] erradas, char[][] forca, int tentativasRestantes, String resultado){
+	public void setEnviarDadosAlterados(char[] copiaTracejada, char[] erradas, int tentativasRestantes, String resultado){
 		this.copiaTracejada = copiaTracejada;
 		this.erradas = erradas;
-		this.forca = forca;
 		this.tentativasRestantes = tentativasRestantes;
 		this.resultado = resultado;
 		informarDadosAlterados();

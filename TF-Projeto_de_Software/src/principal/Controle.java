@@ -60,7 +60,7 @@ public class Controle {
 	public int tamanho(String palavra){//criei para palavras compostas
 		int tamanhoReal = 0;
 
-		for(int i = 0; i < palavra.length(); i++){
+		for(int i = 0; i < palavra.length(); i++){ //itero aqui
 			if(palavra.charAt(i) != ' '){
 				tamanhoReal++;
 			}
@@ -69,11 +69,22 @@ public class Controle {
 		return tamanhoReal;
 	}
 	
-	public void tracejarPalavra(String palavra, char[] copiaTracejada){
+	public void tracejarPalavra(String palavra, char[] copiaTracejada){ //itero aqui
 		for (int i = 0; i < palavra.length(); i++) {
 			if(palavra.charAt(i) != ' ')
 				copiaTracejada[i] = '_';
 
 		}
 	}
+	
+	public void definirEstrategia(int modo, PalavraContext palavraCont)
+			throws IOException {
+		if(modo == 1){
+			palavraCont.todasLetras();
+		}
+		else if(modo == 0){
+			palavraCont.letraPorLetra();
+		}
+	}
+	
 }

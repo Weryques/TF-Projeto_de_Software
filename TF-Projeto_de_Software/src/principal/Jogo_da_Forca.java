@@ -1,8 +1,6 @@
 package principal;
-
 import java.io.*;
 import java.util.*;
-
 import estrategias.LetraPorLetra;
 import estrategias.TodasLetras;
 import observadores.*;
@@ -30,19 +28,19 @@ public class Jogo_da_Forca {
 		Medio medio = new Medio();
 		Visao visao = new Visao();
 		Controle controle = new Controle();
-		
+			
 		PalavraContext palavraCont = new PalavraContext();
-		palavraCont.setLetraPorLetra(new LetraPorLetra(controle, palavraCont, visao, animais, filmes, profissoes, tela, fimJogo, bancoLetras, forcaI, palavraAnonima, dificil, facil, medio));
-		palavraCont.setTodasLetras(new TodasLetras(controle, palavraCont, visao, animais, filmes, profissoes, tela, fimJogo, bancoLetras, forcaI, palavraAnonima, dificil, facil, medio));
+		
+		Estrategia estrategia = new Estrategia(palavraCont, visao, animais, filmes, profissoes, tela, fimJogo, bancoLetras, forcaI, palavraAnonima, dificil, facil, medio, controle);
+		
+		palavraCont.setLetraPorLetra(new LetraPorLetra(palavraCont, visao, animais, filmes, profissoes, tela, fimJogo, bancoLetras, forcaI, palavraAnonima, dificil, facil, medio, controle));
+		palavraCont.setTodasLetras(new TodasLetras(palavraCont, visao, animais, filmes, profissoes, tela, fimJogo, bancoLetras, forcaI, palavraAnonima, dificil, facil, medio, controle));
 		
 		modo = visao.menuEstrategia();
 		
-		if(modo == 1){
-			palavraCont.todasLetras();
-		}
-		else if(modo == 0){
-			palavraCont.letraPorLetra();
-		}
+		controle.definirEstrategia(modo, palavraCont);
 		
 	}
+
+	
 }

@@ -29,5 +29,4 @@ public class Animais implements Tema{
 	private Scanner extracted() throws FileNotFoundException {
 		return new Scanner(new FileReader("Animais.txt"));
 	}
-
 }

@@ -6,7 +6,7 @@ public class Forca implements Observer{
 
 	@Override
 	public void atualiza(char[] copiaTracejada, String resultado,
-			int tentativasRestantes, char[][] forca, char[] erradas) {
+			int tentativasRestantes, char[] erradas) {
 
 		
 		if(tentativasRestantes != 0){
@@ -17,7 +17,7 @@ public class Forca implements Observer{
 
 	}
 	
-	public Forca cria_se(){
+	public Observer cria_se(){
 		return this;
 	}
 

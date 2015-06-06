@@ -71,8 +71,8 @@ public class Visao {
 	
 	public int menuEstrategia(){
 		int escolha3 = 0;
-		System.out.println("| 1 - Modo normal de jogo              |");
-		System.out.println("| 0 - Modo mais dificil                |");
+		System.out.println("| 1 - Modo Todas as Letras              |");
+		System.out.println("| 0 - Modo Letra por Letra              |");
 		System.out.print("Aqui: ");
 		escolha3 = scan.nextInt();
 		return escolha3;

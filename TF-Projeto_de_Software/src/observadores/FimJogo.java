@@ -6,7 +6,7 @@ public class FimJogo implements Observer{
 
 	@Override
 	public void atualiza(char[] copiaTracejada, String resultado,
-			int tentativasRestantes, char[][] forca, char[] erradas) {
+			int tentativasRestantes, char[] erradas) {
 		
 		
 		
@@ -19,7 +19,7 @@ public class FimJogo implements Observer{
 		
 	}
 	
-	public FimJogo cria_se(){
+	public Observer cria_se(){
 		return this;
 	}
 }
