@@ -2,27 +2,39 @@ package principal;
 
 import java.util.Scanner;
 
+/**Classe que exibe informações que não são de interesse dos observers
+ * @author weryquessantos
+ *
+ */
 public class Visao {
 	Scanner scan = new Scanner(System.in);
 	
-	public void letraRepetida(){
-		System.out.println("VOCÊ JÁ DIGITOU ESSA LETRA!");
-	}
-
+	/**Exibe a mensagem para que o usuário digite uma letra
+	 * 
+	 */
 	public void digiteLetra() {
 		System.out.println();
 		System.out.print("Digite uma letra (MAIÚSCULA): ");		
 	}
 
+	/**Exibe a mensagem caso uma opção no menu seja invalida
+	 * 
+	 */
 	public void opInvalida() {
 		System.out.println("Opção inválida! Tente novamente.");		
 	}
 
+	/**Exibe a mensagem de quando o jogo é encerrado
+	 * 
+	 */
 	public void fimJogo() {
 		System.out.println();
 		System.out.println("JOGO ENCERRADO!");	
 	}
 	
+	/**Exibe o menu de fim de jogo e retorna a opção escolhida no menu
+	 * @return escolha2
+	 */
 	public int menuFimDeJogo(){
 		int escolha2 = 0;
 		System.out.println("| 1 - Continuar o jogo com o mesmo tema e mesmo nível |");
@@ -34,6 +46,9 @@ public class Visao {
 		return escolha2;
 	}
 
+	/**Exibe o menu Tema e retorna a opção escolhida
+	 * @return tema
+	 */
 	public int menuTema() {
 		int tema = 0;
 		System.out.println("|------Tema------|");
@@ -47,6 +62,9 @@ public class Visao {
 		return tema;
 	}
 
+	/**Exibe o menu Tema ou Aleatorio e retorna a opção escolhida
+	 * @return escolha1
+	 */
 	public int menuTemaOuAleatoria() {
 		int escolha1 = 0;
 		System.out.println("| 1 - Escolher o tema da palavra              |");
@@ -56,6 +74,9 @@ public class Visao {
 		return escolha1;
 	}
 
+	/**Exibe o menu Niveis e retorna a opção escolhida
+	 * @return nivel
+	 */
 	public int menuNiveis() {
 		int nivel = 0;
 		System.out.println("|-----Níveis-----|");
@@ -69,6 +90,9 @@ public class Visao {
 		return nivel;
 	}
 	
+	/**Exibe  o menu Estrategia e retorna a opção escolhida
+	 * @return escolha3
+	 */
 	public int menuEstrategia(){
 		int escolha3 = 0;
 		System.out.println("| 1 - Modo Todas as Letras              |");
@@ -78,6 +102,9 @@ public class Visao {
 		return escolha3;
 	}
 	
+	/**Limpa o console a cada exibição de menus ou outras exibições
+	 * 
+	 */
 	public void limparConsole() {
 		for(int i = 0; i < 100; i++){
 			System.out.println("\b");

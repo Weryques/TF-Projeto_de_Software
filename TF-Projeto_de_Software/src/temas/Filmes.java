@@ -5,8 +5,15 @@ import java.util.*;
 
 import interfaces.Tema;
 
+/**Classe que implementa a interface Tema
+ * @author weryquessantos
+ *
+ */
 public class Filmes implements Tema{
 
+	/* (non-Javadoc)
+	 * @see interfaces.Tema#getPalavraArquivo()
+	 */
 	@Override
 	public String getPalavraArquivo() throws IOException {
 		String palavra = null;
@@ -24,6 +31,10 @@ public class Filmes implements Tema{
 		return palavra;
 	}
 
+	/**
+	 * @return Scanner
+	 * @throws FileNotFoundException
+	 */
 	private Scanner extracted() throws FileNotFoundException {
 		return new Scanner(new FileReader("Filmes.txt"));
 	}	

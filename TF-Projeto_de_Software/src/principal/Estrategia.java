@@ -5,7 +5,14 @@ import niveis.*;
 import observadores.*;
 import temas.*;
 
+/**
+ * @author weryquessantos
+ *
+ */
 public class Estrategia {
+	/**Atributos
+	 * 
+	 */
 	private char[] copiaTracejada = new char[100];
 	private int qAcertos = 0;
 	protected int h = 0;
@@ -32,6 +39,22 @@ public class Estrategia {
 	Medio medio;
 	Controle controle;
 	
+	/**
+	 * @param palavraCont
+	 * @param visao
+	 * @param animais
+	 * @param filmes
+	 * @param profissoes
+	 * @param tela
+	 * @param fimJogo
+	 * @param bancoLetras
+	 * @param forcaI
+	 * @param palavraAnonima
+	 * @param dificil
+	 * @param facil
+	 * @param medio
+	 * @param controle
+	 */
 	public Estrategia(PalavraContext palavraCont, Visao visao, Animais animais,
 			Filmes filmes, Profissoes profissoes, TelaObservavel tela,
 			FimJogo fimJogo, BancoLetrasErradas bancoLetras, Forca forcaI,
@@ -54,6 +77,10 @@ public class Estrategia {
 		this.controle = controle;
 	}
 	
+	/**Metodo de reinicio do jogo
+	 * @param escolha2
+	 * @throws IOException
+	 */
 	public void reiniciarJogo(int escolha2) throws IOException {
 		if(escolha2 == 1){ //troca de palavra
 			tentativasRestantes = controle.definirTentativas(dificil, facil, medio, nivel, tentativasRestantes); //chama o metodo para definir tentativas de errar
@@ -94,6 +121,9 @@ public class Estrategia {
 		}
 	}
 	
+	/**
+	 * Metodo para zerar as variáveis e impedir lixo ao reiniciar o jogo
+	 */
 	public void zerarVariaveis() {
 		for(int i = 0; i < copiaTracejada.length; i++)
 			copiaTracejada[i] = '\0';

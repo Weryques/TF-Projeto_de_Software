@@ -7,8 +7,15 @@ import java.util.*;
 
 import interfaces.Tema;
 
+/**Classe que implenta a interface Tema
+ * @author weryquessantos
+ *
+ */
 public class Animais implements Tema{
 
+	/* (non-Javadoc)
+	 * @see interfaces.Tema#getPalavraArquivo()
+	 */
 	@Override
 	public String getPalavraArquivo() throws IOException{		
 		String palavra = null;
@@ -26,6 +33,10 @@ public class Animais implements Tema{
 		return palavra;
 	}
 
+	/**
+	 * @return Scanner
+	 * @throws FileNotFoundException
+	 */
 	private Scanner extracted() throws FileNotFoundException {
 		return new Scanner(new FileReader("Animais.txt"));
 	}
