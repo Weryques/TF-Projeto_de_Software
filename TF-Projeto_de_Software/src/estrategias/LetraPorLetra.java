@@ -10,7 +10,7 @@ import observadores.*;
 import principal.*;
 import temas.*;
 
-/** Classe reponsável pela estrategia de letra por letra
+/** Classe reponsavel pela estrategia de letra por letra
  * @author weryquessantos
  * 
  * */
@@ -207,6 +207,7 @@ public class LetraPorLetra extends Estrategia implements AdivinhacaoStrategy {
 			 * caso sim @param qAcertos é incrementada, @param qA é incrementada e a @param copiaTracejada recebe a letra
 			 * ocorre um break, pois somente a primeira ocorrencia da letra ainda não revelada é mostrada
 			 */
+			
 			for(int i = 0; i < getPalavra().length(); i++){
 				if(getPalavra().charAt(i) == getLetra() && getCopiaTracejada()[i] != getLetra()){
 					setqAcertos(getqAcertos() + 1);

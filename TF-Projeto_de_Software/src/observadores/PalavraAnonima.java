@@ -1,5 +1,7 @@
 package observadores;
 
+import Iteraveis.VetoresIteraveis;
+import interfaces.IteradorA;
 import interfaces.Observer;
 
 /**Classe interessada em saber se alguma letra foi adivinhada
@@ -7,6 +9,8 @@ import interfaces.Observer;
  *
  */
 public class PalavraAnonima implements Observer{
+	VetoresIteraveis iteravel = new VetoresIteraveis();
+	IteradorA iterador;
 
 	/* (non-Javadoc)
 	 * @see interfaces.Observer#atualiza(char[], java.lang.String, int, char[])
@@ -15,15 +19,15 @@ public class PalavraAnonima implements Observer{
 	public void atualiza(char[] copiaTracejada, String resultado,
 			int tentativasRestantes, char[] erradas) {
 
+		iteravel.setVetor(copiaTracejada);
+		iterador = iteravel.criaIteradorA();
 
-		if(copiaTracejada != null){
-			System.out.println();
-			for(int i = 0; i < copiaTracejada.length; i++){
-				System.out.print(" "+ copiaTracejada[i] +" ");
-			}
-			System.out.println();
+		System.out.println();
+		while(iterador.hasNext()){
+			System.out.print(" "+ iterador.next() +" ");
 		}
-		
+		System.out.println();
+
 	}
 
 	/* (non-Javadoc)
