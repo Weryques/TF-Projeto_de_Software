@@ -3,7 +3,7 @@ package niveis;
 import interfaces.Nivel;
 
 
-/**Classe que implementa a @interface Nivel
+/**Classe que implementa a interface Nivel
  * @author weryquessantos
  *
  */

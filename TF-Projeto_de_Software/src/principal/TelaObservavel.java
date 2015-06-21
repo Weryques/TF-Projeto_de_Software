@@ -5,7 +5,7 @@ import interfaces.Observer;
 
 import java.util.*;
 
-/**Classe que recebe as informações de interesse dos observers de outras e as manda para os observers
+/**Classe que recebe as informacoes de interesse dos observers de outras e as manda para os observers. Tambem tem responsabilidade de remover e adicionar observers
  * @author weryquessantos
  *
  */

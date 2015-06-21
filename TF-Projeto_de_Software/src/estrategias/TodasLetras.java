@@ -10,7 +10,7 @@ import observadores.*;
 import principal.*;
 import temas.*;
 
-/** Classe reponsável pela estrategia de Todas as letras
+/** Classe reponsavel pela estrategia de Todas as letras
  * @author weryquessantos
  * 
  * */

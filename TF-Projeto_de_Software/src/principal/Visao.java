@@ -2,14 +2,14 @@ package principal;
 
 import java.util.Scanner;
 
-/**Classe que exibe informações que não são de interesse dos observers
+/**Classe que exibe informacoes que nao sao de interesse dos observers
  * @author weryquessantos
  *
  */
 public class Visao {
 	Scanner scan = new Scanner(System.in);
 	
-	/**Exibe a mensagem para que o usuário digite uma letra
+	/**Exibe a mensagem para que o usuario digite uma letra
 	 * 
 	 */
 	public void digiteLetra() {
@@ -24,7 +24,7 @@ public class Visao {
 		System.out.println("Opção inválida! Tente novamente.");		
 	}
 
-	/**Exibe a mensagem de quando o jogo é encerrado
+	/**Exibe a mensagem de quando o jogo eh encerrado
 	 * 
 	 */
 	public void fimJogo() {
@@ -32,7 +32,7 @@ public class Visao {
 		System.out.println("JOGO ENCERRADO!");	
 	}
 	
-	/**Exibe o menu de fim de jogo e retorna a opção escolhida no menu
+	/**Exibe o menu de fim de jogo e retorna a opcao escolhida no menu
 	 * @return escolha2
 	 */
 	public int menuFimDeJogo(){
@@ -46,7 +46,7 @@ public class Visao {
 		return escolha2;
 	}
 
-	/**Exibe o menu Tema e retorna a opção escolhida
+	/**Exibe o menu Tema e retorna a opcao escolhida
 	 * @return tema
 	 */
 	public int menuTema() {
@@ -74,7 +74,7 @@ public class Visao {
 		return escolha1;
 	}
 
-	/**Exibe o menu Niveis e retorna a opção escolhida
+	/**Exibe o menu Niveis e retorna a opcao escolhida
 	 * @return nivel
 	 */
 	public int menuNiveis() {
@@ -90,7 +90,7 @@ public class Visao {
 		return nivel;
 	}
 	
-	/**Exibe  o menu Estrategia e retorna a opção escolhida
+	/**Exibe  o menu Estrategia e retorna a opcao escolhida
 	 * @return escolha3
 	 */
 	public int menuEstrategia(){
@@ -102,7 +102,7 @@ public class Visao {
 		return escolha3;
 	}
 	
-	/**Limpa o console a cada exibição de menus ou outras exibições
+	/**Limpa o console a cada exibicao de menus ou outras exibicoes
 	 * 
 	 */
 	public void limparConsole() {

@@ -5,5 +5,8 @@ package interfaces;
  *
  */
 public interface Nivel {
+	/**Retorna a tentantivasRestantes predefinida para cada nivel
+	 * @return tentativasRestantes
+	 */
 	public int getTentativasRestantes();
 }

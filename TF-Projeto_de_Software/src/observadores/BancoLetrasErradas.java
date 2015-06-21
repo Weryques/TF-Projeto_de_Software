@@ -4,13 +4,18 @@ import Iteraveis.VetoresIteraveis;
 import interfaces.IteradorA;
 import interfaces.Observer;
 
-/**Classe que observa as letra erradas
+/**Classe observadora interessada em sabe as letras erradas
  * @author weryquessantos
  *
  */
 public class BancoLetrasErradas implements Observer{
+	
+	/** Instancia do iteravel VetoresIteraveis*/
 	VetoresIteraveis iteravel = new VetoresIteraveis();
+	
+	/** Instancia do iterador IteradorA*/
 	IteradorA iterador;
+	
 	/* (non-Javadoc)
 	 * @see interfaces.Observer#atualiza(char[], java.lang.String, int, char[])
 	 */

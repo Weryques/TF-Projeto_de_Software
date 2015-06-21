@@ -2,7 +2,7 @@ package observadores;
 
 import interfaces.Observer;
 
-/**Classe interessa em saber como termina o jogo
+/**Classe observadora interessada em saber como termina o jogo
  * @author weryquessantos
  *
  */

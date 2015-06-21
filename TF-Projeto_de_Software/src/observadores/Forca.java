@@ -2,7 +2,7 @@ package observadores;
 
 import interfaces.Observer;
 
-/**Classe interessada em saber quantas chances de errar tem-se
+/**Classe observadora interessada em saber quantas chances de errar tem-se
  * @author weryquessantos
  *
  */

@@ -31,7 +31,7 @@ public class Filmes implements Tema{
 		return palavra;
 	}
 
-	/**
+	/**Metodo extraido
 	 * @return Scanner
 	 * @throws FileNotFoundException
 	 */

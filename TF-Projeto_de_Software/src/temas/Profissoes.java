@@ -31,7 +31,7 @@ public class Profissoes implements Tema {
 		return palavra;
 	}
 
-	/**
+	/**Metodos extraido
 	 * @return Scanner
 	 * @throws FileNotFoundException
 	 */

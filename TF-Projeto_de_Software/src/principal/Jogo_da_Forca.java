@@ -9,7 +9,7 @@ import observadores.*;
 import niveis.*;
 import temas.*;
 
-/**Classe responsável pelo inicio do jogo, tem-se instancias das outras classes do projeto
+/**Classe responsavel pelo inicio do jogo, tem-se instancias das outras classes do projeto
  * @author weryquessantos
  */
 

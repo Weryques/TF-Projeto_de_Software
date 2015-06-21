@@ -4,12 +4,14 @@ import Iteraveis.VetoresIteraveis;
 import interfaces.IteradorA;
 import interfaces.Observer;
 
-/**Classe interessada em saber se alguma letra foi adivinhada
+/**Classe observadora interessada em saber se alguma letra foi adivinhada
  * @author weryquessantos
  *
  */
 public class PalavraAnonima implements Observer{
+	/**Instancia do iteravel VetoresIteraveis*/
 	VetoresIteraveis iteravel = new VetoresIteraveis();
+	/**Instancia do iterador IteradorA*/
 	IteradorA iterador;
 
 	/* (non-Javadoc)

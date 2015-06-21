@@ -2,17 +2,28 @@ package Iteradores;
 
 import interfaces.IteradorA;
 
+/**Iterador concreto, implementa a interface IteradorA
+ * @author weryquessantos
+ *
+ */
 public class IteradorVetores implements IteradorA {
+	
+	/**Atributo vetor*/
 	char vetor[];
+	
+	/**Atributo i */
 	int i = 0;
 	
-	/**
+	/**Construtor da classe IteradorVetores
 	 * @param vetor
 	 */
 	public IteradorVetores(char[] vetor) {
 		this.vetor = vetor;
 	}
 
+	/* (non-Javadoc)
+	 * @see interfaces.IteradorA#hasNext()
+	 */
 	@Override
 	public boolean hasNext() {
 		if(vetor == null || i >= vetor.length || vetor[i] == '\0'){
@@ -23,6 +34,9 @@ public class IteradorVetores implements IteradorA {
 		}
 	}
 
+	/* (non-Javadoc)
+	 * @see interfaces.IteradorA#next()
+	 */
 	@Override
 	public Object next() {
 		char caractere = vetor[i];

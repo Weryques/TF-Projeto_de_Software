@@ -6,7 +6,7 @@ import niveis.*;
 import observadores.*;
 import temas.*;
 
-/**Classe que contem os metodos de controle do jogo
+/**Classe que contem os principais metodos de controle do jogo
  * @author weryquessantos
  *
  */

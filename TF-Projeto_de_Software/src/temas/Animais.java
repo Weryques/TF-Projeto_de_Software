@@ -33,7 +33,7 @@ public class Animais implements Tema{
 		return palavra;
 	}
 
-	/**
+	/**Metodo extraido
 	 * @return Scanner
 	 * @throws FileNotFoundException
 	 */
