@@ -11,10 +11,10 @@ import iteraveis.VetoresIteraveis;
 public class BancoLetrasErradas implements Observer{
 	
 	/** Instancia do iteravel VetoresIteraveis*/
-	private VetoresIteraveis iteravel = new VetoresIteraveis();
+	VetoresIteraveis iteravel = new VetoresIteraveis();
 	
 	/** Instancia do iterador IteradorA*/
-	private IteradorA iterador;
+	IteradorA iterador;
 	
 	/* (non-Javadoc)
 	 * @see interfaces.Observer#atualiza(char[], java.lang.String, int, char[])
