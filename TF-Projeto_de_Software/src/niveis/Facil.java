@@ -8,7 +8,7 @@ import interfaces.Nivel;
  *
  */
 public class Facil implements Nivel{
-	private static int tentativasRestantes = 13;
+	private int tentativasRestantes = 13;
 
 	/* (non-Javadoc)
 	 * @see interfaces.Nivel#getTentativasRestantes()
