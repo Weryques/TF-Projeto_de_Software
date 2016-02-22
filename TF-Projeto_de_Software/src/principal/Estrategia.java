@@ -24,20 +24,20 @@ public class Estrategia {
 	private char[] erradas = new char[100];
 	private int escolha1 = 0;
 	
-	PalavraContext palavraCont;
-	Visao visao;
-	Animais animais;
-	Filmes filmes;
-	Profissoes profissoes;
-	TelaObservavel tela;
-	FimJogo fimJogo;
-	BancoLetrasErradas bancoLetras;
-	Forca forcaI;
-	PalavraAnonima palavraAnonima;
-	Dificil dificil;
-	Facil facil;
-	Medio medio;
-	Controle controle;
+	private PalavraContext palavraCont;
+	private Visao visao;
+	private Animais animais;
+	private Filmes filmes;
+	private Profissoes profissoes;
+	private TelaObservavel tela;
+	private FimJogo fimJogo;
+	private BancoLetrasErradas bancoLetras;
+	private Forca forcaI;
+	private PalavraAnonima palavraAnonima;
+	private Dificil dificil;
+	private Facil facil;
+	private Medio medio;
+	private Controle controle;
 	
 	/**
 	 * @param palavraCont
