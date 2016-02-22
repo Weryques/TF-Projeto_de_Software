@@ -1,4 +1,4 @@
-package Iteradores;
+package iteradores;
 
 import interfaces.IteradorA;
 

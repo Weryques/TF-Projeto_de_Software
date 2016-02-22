@@ -16,6 +16,7 @@ import temas.*;
  * */
 
 public class LetraPorLetra extends Estrategia implements AdivinhacaoStrategy {	
+	 private static Scanner scan = new Scanner(System.in);
 
 	/** Parametros recebidos ao ser instanciada
 	 * @param palavraCont
@@ -43,8 +44,6 @@ public class LetraPorLetra extends Estrategia implements AdivinhacaoStrategy {
 		super(palavraCont, visao, animais, filmes, profissoes, tela, fimJogo,
 				bancoLetras, forcaI, palavraAnonima, dificil, facil, medio, controle);
 	}
-
-	private static Scanner scan = new Scanner(System.in);
 		
 	/* (non-Javadoc)
 	 * @see interfaces.AdivinhacaoStrategy#adivinhar()

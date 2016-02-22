@@ -77,6 +77,4 @@ public class Jogo_da_Forca {
 		controle.definirEstrategia(modo, palavraCont);
 		
 	}
-
-	
 }

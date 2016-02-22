@@ -16,7 +16,7 @@ public class Controle {
 	 * @return boolean
 	 */
 	public boolean opMenuValidar(int escolha){
-		if(escolha == 1 || escolha == 2 || escolha == 3 || escolha == 0){
+		if(escolha > -1 &&  escolha < 4){
 			return true;
 		}
 		else{
@@ -82,6 +82,7 @@ public class Controle {
 	public void adicionaObservers(TelaObservavel tela, FimJogo fimJogo,
 			BancoLetrasErradas bancoLetras, Forca forcaI,
 			PalavraAnonima palavraAnonima) {
+		
 		tela.adicionaObservers(fimJogo.criarse());
 		tela.adicionaObservers(forcaI.criarse());
 		tela.adicionaObservers(palavraAnonima.criarse());

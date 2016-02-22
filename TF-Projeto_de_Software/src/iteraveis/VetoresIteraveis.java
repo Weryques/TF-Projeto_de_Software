@@ -1,8 +1,8 @@
 package iteraveis;
 
-import Iteradores.IteradorVetores;
 import interfaces.IteradorA;
 import interfaces.IteravelA;
+import iteradores.IteradorVetores;
 
 /**Iteravel concreto, implementa a interface IteravelA
  * @author weryquessantos

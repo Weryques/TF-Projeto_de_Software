@@ -16,7 +16,8 @@ import temas.*;
  * */
 
 public class TodasLetras extends Estrategia implements AdivinhacaoStrategy {
-	
+	private static Scanner scan = new Scanner(System.in);
+
 	/** Parametros recebidos ao ser instanciada
 	 * @param palavraCont
 	 * @param visao
@@ -44,7 +45,6 @@ public class TodasLetras extends Estrategia implements AdivinhacaoStrategy {
 				bancoLetras, forcaI, palavraAnonima, dificil, facil, medio, controle);
 	}
 
-	private static Scanner scan = new Scanner(System.in);
 		
 	/* (non-Javadoc)
 	 * @see interfaces.AdivinhacaoStrategy#adivinhar()
