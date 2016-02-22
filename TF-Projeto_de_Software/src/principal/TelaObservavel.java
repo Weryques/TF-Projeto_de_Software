@@ -20,7 +20,8 @@ public class TelaObservavel implements Observavel{
 	int tentativasRestantes;
 	
 	/** Atributos erradas e copiaTracejada*/
-	char[] erradas, copiaTracejada;
+	char[] erradas; 
+	char[] copiaTracejada;
 		
 	/* (non-Javadoc)
 	 * @see interfaces.Observavel#adicionaObservers(interfaces.Observer)

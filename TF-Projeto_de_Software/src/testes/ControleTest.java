@@ -1,7 +1,7 @@
 /**
  * 
  */
-package Testes;
+package testes;
 
 import static org.junit.Assert.*;
 
@@ -37,7 +37,8 @@ public class ControleTest {
 	 */
 	@Test
 	public void testDefinirEstrategia() {
-		int modo = 1, modo0 = 0;
+		int modo = 1;
+		int modo0 = 0;
 		
 		assertEquals("Estratégia Todas Letras iniciada", 1, modo);
 		assertEquals("Estratégia Letra por Letra iniciada", 0, modo0);

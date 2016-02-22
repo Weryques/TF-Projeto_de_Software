@@ -9,10 +9,10 @@ import interfaces.IteradorA;
 public class IteradorVetores implements IteradorA {
 	
 	/**Atributo vetor*/
-	char vetor[];
+	private char vetor[];
 	
 	/**Atributo i */
-	int i = 0;
+	private int i = 0;
 	
 	/**Construtor da classe IteradorVetores
 	 * @param vetor

@@ -1,4 +1,4 @@
-package Iteraveis;
+package iteraveis;
 
 import Iteradores.IteradorVetores;
 import interfaces.IteradorA;
@@ -10,7 +10,7 @@ import interfaces.IteravelA;
  */
 public class VetoresIteraveis implements IteravelA{
 	/** Atributo vetor*/
-	char vetor[];
+	private char vetor[];
 	
 	/**
 	 * @param vetor the vetor to set

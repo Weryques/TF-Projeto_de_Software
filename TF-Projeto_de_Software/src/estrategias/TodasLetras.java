@@ -154,7 +154,8 @@ public class TodasLetras extends Estrategia implements AdivinhacaoStrategy {
 		
 
 		while(true){
-			int qA = 0, escolha2;
+			int qA = 0;
+			int escolha2;
 
 			getVisao().limparConsole();
 			getTela().setEnviarDadosAlterados(getCopiaTracejada(), getErradas(), getTentativasRestantes(), getResultado());

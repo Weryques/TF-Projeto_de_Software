@@ -8,7 +8,7 @@ import interfaces.Nivel;
  *
  */
 public class Medio implements Nivel{
-	int tentativasRestantes = 10;
+	private static int tentativasRestantes = 10;
 
 	/* (non-Javadoc)
 	 * @see interfaces.Nivel#getTentativasRestantes()

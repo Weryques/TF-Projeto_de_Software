@@ -1,8 +1,8 @@
 package observadores;
 
-import Iteraveis.VetoresIteraveis;
 import interfaces.IteradorA;
 import interfaces.Observer;
+import iteraveis.VetoresIteraveis;
 
 /**Classe observadora interessada em saber se alguma letra foi adivinhada
  * @author weryquessantos
