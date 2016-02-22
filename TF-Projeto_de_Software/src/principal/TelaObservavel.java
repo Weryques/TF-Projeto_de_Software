@@ -11,17 +11,17 @@ import java.util.*;
  */
 public class TelaObservavel implements Observavel{
 	/** Lista de observers*/
-	List<Observer> observadores = new ArrayList<Observer>();
+	private List<Observer> observadores = new ArrayList<Observer>();
 	
 	/** Atributo resultado*/
-	String resultado;
+	private String resultado;
 
 	/**Atributo tentativasRestantes */
-	int tentativasRestantes;
+	private int tentativasRestantes;
 	
 	/** Atributos erradas e copiaTracejada*/
-	char[] erradas; 
-	char[] copiaTracejada;
+	private char[] erradas; 
+	private char[] copiaTracejada;
 		
 	/* (non-Javadoc)
 	 * @see interfaces.Observavel#adicionaObservers(interfaces.Observer)

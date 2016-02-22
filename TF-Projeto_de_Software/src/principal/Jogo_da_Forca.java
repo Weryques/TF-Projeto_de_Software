@@ -14,7 +14,7 @@ import temas.*;
  */
 
 public class Jogo_da_Forca {
-	static Scanner scan = new Scanner(System.in);
+	public static Scanner scan = new Scanner(System.in);
 
 	/**
 	 * @param args

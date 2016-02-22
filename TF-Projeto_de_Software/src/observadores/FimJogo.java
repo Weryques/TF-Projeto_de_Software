@@ -29,7 +29,7 @@ public class FimJogo implements Observer{
 	/* (non-Javadoc)
 	 * @see interfaces.Observer#cria_se()
 	 */
-	public Observer cria_se(){
+	public Observer criarse(){
 		return this;
 	}
 }

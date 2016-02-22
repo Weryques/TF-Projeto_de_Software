@@ -7,7 +7,7 @@ import java.util.Scanner;
  *
  */
 public class Visao {
-	Scanner scan = new Scanner(System.in);
+	private Scanner scan = new Scanner(System.in);
 	
 	/**Exibe a mensagem para que o usuario digite uma letra
 	 * 

@@ -82,10 +82,10 @@ public class Controle {
 	public void adicionaObservers(TelaObservavel tela, FimJogo fimJogo,
 			BancoLetrasErradas bancoLetras, Forca forcaI,
 			PalavraAnonima palavraAnonima) {
-		tela.adicionaObservers(fimJogo.cria_se());
-		tela.adicionaObservers(forcaI.cria_se());
-		tela.adicionaObservers(palavraAnonima.cria_se());
-		tela.adicionaObservers(bancoLetras.cria_se());
+		tela.adicionaObservers(fimJogo.criarse());
+		tela.adicionaObservers(forcaI.criarse());
+		tela.adicionaObservers(palavraAnonima.criarse());
+		tela.adicionaObservers(bancoLetras.criarse());
 	}
 
 	/**Defini o tamanho real da palavra, ou seja, o tamanho dela sem os espaços

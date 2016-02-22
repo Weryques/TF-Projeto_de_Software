@@ -10,9 +10,9 @@ import iteraveis.VetoresIteraveis;
  */
 public class PalavraAnonima implements Observer{
 	/**Instancia do iteravel VetoresIteraveis*/
-	VetoresIteraveis iteravel = new VetoresIteraveis();
+	private VetoresIteraveis iteravel = new VetoresIteraveis();
 	/**Instancia do iterador IteradorA*/
-	IteradorA iterador;
+	private IteradorA iterador;
 
 	/* (non-Javadoc)
 	 * @see interfaces.Observer#atualiza(char[], java.lang.String, int, char[])
@@ -35,7 +35,7 @@ public class PalavraAnonima implements Observer{
 	/* (non-Javadoc)
 	 * @see interfaces.Observer#cria_se()
 	 */
-	public Observer cria_se(){
+	public Observer criarse(){
 		return this;
 	}
 }

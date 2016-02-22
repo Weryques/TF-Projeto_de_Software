@@ -44,7 +44,7 @@ public class LetraPorLetra extends Estrategia implements AdivinhacaoStrategy {
 				bancoLetras, forcaI, palavraAnonima, dificil, facil, medio, controle);
 	}
 
-	static Scanner scan = new Scanner(System.in);
+	private static Scanner scan = new Scanner(System.in);
 		
 	/* (non-Javadoc)
 	 * @see interfaces.AdivinhacaoStrategy#adivinhar()

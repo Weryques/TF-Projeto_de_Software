@@ -12,7 +12,7 @@ import org.junit.Test;
  *
  */
 public class ControleTest {
-	principal.Controle cont;
+	public principal.Controle cont;
 	/**
 	 * Test method for {@link principal.Controle#opMenuValidar(int)}.
 	 */

@@ -15,5 +15,5 @@ public interface Observer {
 	/**Metodo que retorna um observer. O proprio observer retorna sua instancia
 	 * @return Observer
 	 */
-	public Observer cria_se();
+	public Observer criarse();
 }
